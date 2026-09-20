@@ -29,10 +29,13 @@
   --room:#7b8799;      /* 判断・審議ページ:暗めの背景 */
   --panel:#ffffff;     /* チャットの中:明るく */
   --blue:#2a93ea; --blue-deep:#1a73c1; --blue-ink:#14609f; --blue-tint:#e4f1fd;
-  /* 態度表明の色(やわらかめ) */
-  --yes:#86c0ef; --yes-bg:#dcecfb; --yes-ink:#17558f;
-  --no:#ef9f9f;  --no-bg:#fbe1e1;  --no-ink:#9c2f2f;
-  --hold:#b4bac3; --hold-bg:#e6e9ed; --hold-ink:#3a4048;
+  /* 吹き出しの色:議員=ペールグリーン、市=ペールイエロー */
+  --gi:#e1f2de;  --gi-line:#b9dbb3;
+  --shi:#fcf1c9; --shi-line:#ead68a;
+  /* 態度表明(塗りつぶし) */
+  --yes-fill:#d3e7fa;  --yes-line:#95c4ee;
+  --no-fill:#fad7d7;   --no-line:#eba3a3;
+  --hold-fill:#e3e6ea; --hold-line:#b8bfc8;
   --hdr:48px;
   --safe-top:env(safe-area-inset-top,0px);
   --safe-bottom:env(safe-area-inset-bottom,0px);
@@ -160,28 +163,33 @@ footer.end{padding:14px 2px calc(40px + var(--safe-bottom));font-size:12px;color
 .legend{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 2px 0;font-size:12px;color:var(--ink2)}
 .legend:empty{display:none}
 
-.chip{display:inline-block;font-size:11.5px;font-weight:800;border-radius:999px;padding:0 10px;line-height:1.8;color:var(--ink)}
-.chip.yes{background:var(--yes-bg);color:var(--yes-ink)}
-.chip.no{background:var(--no-bg);color:var(--no-ink)}
-.chip.hold{background:var(--hold-bg);color:var(--hold-ink)}
-.chip.part{background:linear-gradient(100deg,var(--yes-bg) 50%,var(--no-bg) 50%);color:var(--ink)}
+.chip{display:inline-block;font-size:11.5px;font-weight:800;border-radius:999px;padding:0 10px;line-height:1.8;color:var(--ink);border:1.5px solid transparent}
+.chip.yes{background:var(--yes-fill);border-color:var(--yes-line)}
+.chip.no{background:var(--no-fill);border-color:var(--no-line)}
+.chip.hold{background:var(--hold-fill);border-color:var(--hold-line)}
+.chip.part{background:linear-gradient(100deg,var(--yes-fill) 50%,var(--no-fill) 50%);border-color:#c9b9cf}
 
 .msg{display:flex;gap:8px;margin:14px 0;align-items:flex-start}
 .msg.r{flex-direction:row-reverse}
-.ava{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800;background:#fff;border:1.5px solid #9aa4b1;color:var(--ink)}
-.ava.city{background:#dbe1e9;border-color:#dbe1e9}
+.ava{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800;background:var(--gi);border:1.5px solid var(--gi-line);color:var(--ink)}
+.ava.city{background:var(--shi);border-color:var(--shi-line)}
 .msg .col{min-width:0;max-width:calc(100% - 44px);display:flex;flex-direction:column;align-items:flex-start}
 .msg.r .col{align-items:flex-end}
 .name{font-size:11.5px;color:var(--ink3);margin:0 4px 3px;line-height:1.5}
 .name .party{margin-left:6px}
 .msg.r .name{text-align:right}
-.bub{position:relative;background:#f2f5f9;border:1.5px solid #ccd3dd;border-radius:4px 16px 16px 16px;padding:9px 13px;overflow-wrap:anywhere;word-break:break-word}
-.msg.r .bub{background:#e1e6ed;border-color:#e1e6ed;border-radius:16px 4px 16px 16px}
+.bub{position:relative;background:var(--gi);border:1.5px solid var(--gi-line);border-radius:4px 16px 16px 16px;padding:9px 13px;overflow-wrap:anywhere;word-break:break-word}
+.msg.r .bub{background:var(--shi);border-color:var(--shi-line);border-radius:16px 4px 16px 16px}
 .bub .chip{margin-bottom:4px}
-.bub.st-yes{border:2.5px solid var(--yes);background:#fff}
-.bub.st-no{border:2.5px solid var(--no);background:#fff}
-.bub.st-hold{border:2.5px solid var(--hold);background:#fff}
-.bub.st-part{border:2.5px solid transparent;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(100deg,var(--yes) 50%,var(--no) 50%) border-box}
+.bub.st-yes{background:var(--yes-fill);border-color:var(--yes-line)}
+.bub.st-no{background:var(--no-fill);border-color:var(--no-line)}
+.bub.st-hold{background:var(--hold-fill);border-color:var(--hold-line)}
+.bub.st-part{background:linear-gradient(100deg,var(--yes-fill) 50%,var(--no-fill) 50%);border-color:#c9b9cf}
+.bub .chip{background:#fff}
+.bub .chip.yes{border-color:var(--yes-line)}
+.bub .chip.no{border-color:var(--no-line)}
+.bub .chip.hold{border-color:var(--hold-line)}
+.bub .chip.part{background:linear-gradient(#fff,#fff) padding-box,linear-gradient(100deg,var(--yes-line) 50%,var(--no-line) 50%) border-box}
 .t{white-space:pre-wrap}
 .t.full{font-size:14px;line-height:1.9}
 [data-mode="full"] .msg .col{flex:1}
@@ -375,7 +383,7 @@ function legendHTML(c){
   var seen={}; c.thread.forEach(function(m){ if(m.stance) seen[m.stance]=1; });
   var order=['yes','no','part','hold'].filter(function(k){return seen[k]});
   if(!order.length) return '';
-  return '<span>態度表明の枠の色</span>'+order.map(function(k){return '<span class="chip '+k+'">'+LEGEND[k]+'</span>'}).join('');
+  return '<span>態度表明の色</span>'+order.map(function(k){return '<span class="chip '+k+'">'+LEGEND[k]+'</span>'}).join('');
 }
 function threadHTML(c,mode){
   return c.thread.map(function(m){
