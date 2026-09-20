@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>陳情ジャッジ 加古川市議会</title>
+<meta name="description" content="陳情・請願の要旨を読んで、採択か不採択かを選んでみよう。選んだあとは、加古川市議会での審議を読めます。">
+<meta name="theme-color" content="#ffffff">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="陳情ジャッジ">
+<meta property="og:type" content="website">
+<meta property="og:title" content="陳情ジャッジ 加古川市議会">
+<meta property="og:description" content="陳情・請願の要旨を読んで、採択か不採択かを選んでみよう。選んだあとは、加古川市議会での審議を読めます。">
+<meta property="og:image" content="https://chinjouojisan.github.io/chinjoujudge01/og-image.jpg">
+<meta property="og:url" content="https://chinjouojisan.github.io/chinjoujudge01/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://chinjouojisan.github.io/chinjoujudge01/og-image.jpg">
+<style>
+:root{
+  color-scheme:light;
+  --ink:#16181c; --ink2:#4b5058; --ink3:#767c85;
+  --line:#d8dbe0; --paper:#fff; --fog:#f2f3f5; --chat:#e8eaee;
+  --blue:#2a93ea; --blue-deep:#1a73c1; --blue-ink:#14609f; --blue-tint:#e4f1fd;
+  --hdr:48px;
+  --safe-top:env(safe-area-inset-top,0px);
+  --safe-bottom:env(safe-area-inset-bottom,0px);
+  --font:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI","Yu Gothic",Meiryo,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.75 var(--font);-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit}
+h1,h2,h3{line-height:1.5;margin:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.screen[hidden]{display:none}
+.wrap{max-width:640px;margin:0 auto;padding:0 16px}
+
+/* ---------- home ---------- */
+.hero{background:#dfe6ee}
+.hero img{display:block;width:100%;max-width:640px;margin:0 auto;height:auto;aspect-ratio:1672/941}
+.say{display:flex;gap:12px;align-items:flex-start;padding:20px 0 6px}
+.say .av{flex:none;width:58px;height:58px;border-radius:50%;background:#fff;border:1px solid var(--line)}
+.say .av img{display:block;width:100%;height:100%;border-radius:50%}
+.say .bubble{flex:1;min-width:0;border:1.5px solid var(--blue);border-radius:4px 18px 18px 18px;padding:12px 14px;background:#fff}
+.say .who{font-size:12px;font-weight:700;color:var(--blue-ink);margin-bottom:2px}
+.say p{margin:0 0 8px}
+.say p:last-child{margin:0}
+.small{font-size:13px;color:var(--ink2)}
+
+.fold{margin:14px 0 6px;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.fold summary{list-style:none;cursor:pointer;padding:13px 2px;font-weight:800;display:flex;justify-content:space-between;align-items:center;min-height:48px}
+.fold summary::-webkit-details-marker{display:none}
+.fold summary::after{content:"";width:9px;height:9px;border-right:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);transform:rotate(45deg) translateY(-2px);transition:transform .18s}
+.fold[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.fold .body{padding:0 2px 14px}
+.fold dl{margin:0}
+.fold dt{font-weight:800;margin-top:12px}
+.fold dt:first-child{margin-top:0}
+.fold dd{margin:2px 0 0;color:var(--ink2);font-size:14px}
+.fold ul{margin:4px 0 0;padding-left:1.2em;color:var(--ink2);font-size:14px}
+
+.pick{margin:26px 0 4px;font-size:17px;font-weight:800}
+.year{border:1.5px solid var(--ink);border-radius:14px;margin:10px 0;background:#fff;overflow:hidden}
+.year>button{display:flex;width:100%;align-items:center;justify-content:space-between;gap:8px;padding:14px 16px;background:none;border:0;text-align:left;font-weight:800;font-size:17px;cursor:pointer;min-height:56px}
+.year .sub{font-size:12.5px;color:var(--ink3);font-weight:500}
+.year[data-open="true"]>button{background:var(--ink);color:#fff}
+.year[data-open="true"] .sub{color:#c9cdd3}
+.cases{padding:8px;background:var(--fog)}
+.cases[hidden]{display:none}
+.case{display:flex;gap:10px;align-items:center;padding:12px;background:#fff;border:1px solid var(--line);border-radius:12px;margin:6px 0;text-decoration:none;color:inherit}
+a.case{border-color:#aeb4bc}
+a.case:hover,a.case:active{border-color:var(--blue);box-shadow:0 0 0 2px var(--blue-tint)}
+.tag{flex:none;font-size:11.5px;font-weight:700;border-radius:6px;padding:0 7px;border:1.2px solid var(--ink);line-height:1.7}
+.tag.req{background:var(--ink);color:#fff}
+.case .ttl{flex:1;min-width:0;font-size:14.5px;line-height:1.55;font-weight:600}
+.case .st{flex:none;font-size:12px;color:var(--ink3);text-align:right}
+a.case .st::after{content:" ›";font-weight:800}
+.case.on .st{color:var(--blue-ink);font-weight:700}
+.case.off{color:var(--ink3);background:#f8f8f9}
+.case.off .ttl{font-weight:500}
+
+.about{margin:26px 0 0;border-top:1px solid var(--line)}
+.about summary{cursor:pointer;padding:14px 0;font-size:14px;font-weight:700;color:var(--ink2);min-height:48px}
+.about .body{font-size:13px;color:var(--ink2);padding-bottom:10px}
+.about .body p{margin:0 0 8px}
+.about a{color:var(--blue-ink)}
+footer.end{padding:12px 0 calc(36px + var(--safe-bottom));font-size:12px;color:var(--ink3)}
+
+/* ---------- case (chat) ---------- */
+#case{background:var(--chat);min-height:100vh}
+.hdr{position:sticky;top:0;z-index:30;height:calc(var(--hdr) + var(--safe-top));padding-top:var(--safe-top);background:#fff;border-bottom:1px solid var(--line)}
+.hdr .in{height:var(--hdr);max-width:640px;margin:0 auto;padding:0 8px;display:flex;align-items:center;gap:4px}
+.back{flex:none;border:0;background:none;padding:0 12px;min-height:44px;font-weight:700;cursor:pointer}
+.hdr .ttl{min-width:0;font-size:14px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chat{max-width:640px;margin:0 auto;padding:6px 12px calc(40px + var(--safe-bottom))}
+.msg{display:flex;gap:8px;margin:14px 0;align-items:flex-start}
+.msg.r{flex-direction:row-reverse}
+.ava{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800;background:#fff;border:1px solid #c3c8cf;color:var(--ink2)}
+.ava.city{background:var(--blue-tint);border-color:#a9d1f6;color:var(--blue-ink)}
+.ava img{display:block;width:100%;height:100%;border-radius:50%}
+.msg .col{min-width:0;max-width:calc(100% - 46px);display:flex;flex-direction:column;align-items:flex-start}
+.msg.r .col{align-items:flex-end}
+.name{font-size:11.5px;color:var(--ink3);margin:0 4px 3px;line-height:1.5}
+.name .party{margin-left:6px;color:var(--ink3)}
+.msg.r .name{text-align:right}
+.bub{background:#fff;border-radius:4px 18px 18px 18px;padding:10px 13px;overflow-wrap:anywhere;word-break:break-word}
+.msg.r .bub{background:var(--blue-tint);border-radius:18px 4px 18px 18px}
+.msg.kk .name{color:var(--blue-ink);font-weight:700}
+.msg.kk .bub{border:1.5px solid var(--blue)}
+.lab{font-size:12px;font-weight:800;color:var(--blue-ink);margin-bottom:2px}
+.t{white-space:pre-wrap}
+.t.full{font-size:14px;line-height:1.9}
+[data-mode="full"] .msg .col{flex:1;max-width:calc(100% - 46px)}
+[data-mode="full"] .msg .bub{width:100%}
+.more{margin-top:4px;border:0;background:none;color:var(--blue-ink);font-size:12.5px;font-weight:700;padding:6px 0 2px;cursor:pointer;min-height:32px}
+.ft{margin-top:6px;padding-top:8px;border-top:1px dashed #b9bec6;white-space:pre-wrap;color:var(--ink2);font-size:13.5px;line-height:1.85}
+.ft[hidden]{display:none}
+
+.card{background:#fff;border:1px solid #c3c8cf;border-radius:16px;padding:14px;margin:12px 0}
+.card.head .meta{font-size:12.5px;color:var(--ink3)}
+.card.head h2{font-size:17px;margin-top:4px}
+.ask{text-align:right;font-size:12px;color:var(--ink3);margin:8px 4px 4px}
+.qr{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.qr button{border:1.5px solid var(--ink);background:#fff;border-radius:999px;padding:6px 18px;font-weight:700;cursor:pointer;min-height:44px}
+.qr button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.qr button:disabled{cursor:default}
+.qr[data-locked="true"] button:not([aria-pressed="true"]){opacity:.35}
+.go{display:block;width:100%;margin:22px 0 6px;padding:16px;border:0;border-radius:14px;background:var(--blue-deep);color:#fff;font-weight:800;font-size:16px;cursor:pointer;box-shadow:0 3px 0 var(--blue-ink);min-height:56px}
+.go:active:not(:disabled){transform:translateY(2px);box-shadow:0 1px 0 var(--blue-ink)}
+.go:disabled{background:#c5c9cf;box-shadow:0 3px 0 #a5aab2;cursor:not-allowed}
+.hint{margin:6px 0 0;text-align:center;font-size:12.5px;color:var(--ink3)}
+.ghost{display:block;width:100%;margin:26px 0 0;padding:13px;border:1.5px solid var(--ink);border-radius:14px;background:#fff;font-weight:700;cursor:pointer;min-height:48px}
+
+.result .rt{font-size:12.5px;color:var(--ink3)}
+.result .final{display:flex;align-items:center;gap:10px;margin:4px 0 2px}
+.result .final b{font-size:22px;line-height:1.3}
+.pill{display:inline-block;border-radius:999px;padding:0 11px;font-size:13px;font-weight:700;border:1.5px solid var(--ink);line-height:1.7;white-space:nowrap}
+.pill.fill{background:var(--ink);color:#fff}
+.pill.blue{border-color:var(--blue);background:var(--blue-tint);color:var(--blue-ink)}
+.result .proc{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
+.rrow{border-top:1px solid var(--line);padding:10px 0 2px}
+.rrow .rn{font-weight:800;font-size:14px}
+.rrow .rv{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin:4px 0}
+.rrow .k{font-size:12.5px;color:var(--ink3)}
+.rrow .rv .k:nth-of-type(2){margin-left:6px}
+.rrow .rs{font-size:13px;color:var(--ink2)}
+.rrow .rs em{font-style:normal;font-weight:700}
+.result .sum{border-top:1px solid var(--line);margin-top:8px;padding-top:10px;font-size:13.5px}
+.result .fine{margin:6px 0 0;font-size:12px;color:var(--ink3)}
+.pop{animation:pop .28s ease-out}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.dh{font-size:18px;margin:26px 2px 0}
+.tabs{position:sticky;top:calc(var(--hdr) + var(--safe-top));z-index:20;background:var(--chat);padding:8px 0 4px}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border:1.5px solid var(--ink);border-radius:12px;overflow:hidden}
+.seg button{border:0;background:none;padding:6px 4px;font-weight:700;cursor:pointer;min-height:44px}
+.seg button+button{border-left:1.5px solid var(--ink)}
+.seg button[aria-selected="true"]{background:var(--ink);color:#fff}
+.cap{margin:6px 2px 0;font-size:12px;color:var(--ink2)}
+
+.sep{text-align:center;margin:24px 0 6px}
+.sep span{display:inline-block;background:rgba(22,24,28,.62);color:#fff;font-size:12px;border-radius:999px;padding:2px 12px}
+.sec{display:flex;align-items:center;gap:10px;margin:20px 0 4px;font-size:12.5px;font-weight:800;color:var(--ink2)}
+.sec::before,.sec::after{content:"";flex:1;height:1px;background:#bfc4cb}
+.chair{margin:10px auto;max-width:94%;background:#d9dce1;border-radius:12px;padding:8px 12px;font-size:13.5px}
+.chair .name{margin:0 0 1px;font-weight:700;color:var(--ink2)}
+.chair .more{color:var(--ink2)}
+.chair .ft{border-top-color:#a9aeb6}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HOME ============ -->
+<div id="home" class="screen">
+  <div class="hero"><img src="hero.jpg" alt="陳情ジャッジ 加古川市議会" width="1400" height="788"></div>
+  <h1 class="sr">陳情ジャッジ 加古川市議会</h1>
+  <main class="wrap">
+    <div class="say">
+      <div class="av"><img src="kakomo.png" alt="カコモ" width="58" height="58"></div>
+      <div class="bubble">
+        <div class="who">カコモ</div>
+        <p>加古川市議会に出された陳情・請願の「要旨」を読んで、あなたなら採択か、不採択か、選んでみましょう。</p>
+        <p>選んだあとは、市議会でどんな審議があったかを読めます。</p>
+        <p class="small">当てるためのクイズではありません。議会の結論がひとつの正解とは限らないからです。</p>
+      </div>
+    </div>
+
+    <details class="fold">
+      <summary>陳情・請願ってなに?</summary>
+      <div class="body">
+        <dl>
+          <dt>陳情と請願</dt>
+          <dd>どちらも、市民が議会に要望や意見を伝える方法です。請願は議員の紹介が必要で、陳情は紹介議員なしで出せます。</dd>
+          <dt>審査の流れ</dt>
+          <dd>議会に届くと、多くの場合は担当の常任委員会で審査されます(請願は「付託」、陳情は「送付」と呼びます)。委員会では、質疑、各会派の意見(態度表明)、採決の順に進みます。</dd>
+          <dt>結論の種類</dt>
+          <dd>
+            <ul>
+              <li>採択:議会として、趣旨をもっともだと認めること</li>
+              <li>不採択:採択しないこと</li>
+              <li>継続審査:結論を出さず、次の会議で引き続き審査すること</li>
+              <li>一部採択:陳情事項・請願事項が複数あるとき、一部だけを採択すること</li>
+            </ul>
+          </dd>
+          <dt>採択されたら</dt>
+          <dd>議会が必要と認めたものは、市長などへ送られ、対応の報告を求めることがあります。市に従う義務が生じるわけではありません。</dd>
+          <dt>本会議</dt>
+          <dd>委員会の結論は、そのあと本会議で最終的に決まります。委員会の結論が本会議で変わることもあります。このゲームでは、今のところ委員会での審査を扱っています。</dd>
+        </dl>
+      </div>
+    </details>
+
+    <h2 class="pick">年度をえらぶ</h2>
+    <div id="years"></div>
+
+    <details class="about">
+      <summary>このサイトについて</summary>
+      <div class="body">
+        <p><b>運営者</b><br>石原英一(<a href="https://kakogawa-giin-map.com" target="_blank" rel="noopener">加古川市議会議員マップ</a>)</p>
+        <p><b>データの出典</b><br>加古川市議会の会議録(市の議事録システムで公開されているもの)と、議会の公表資料です。議事録システムで公開されていない案件は、審議の内容を掲載していません。</p>
+        <p><b>表示について</b><br>フル版は議事録の発言そのものです(会議録の表記ゆれを整えている場合があります)。簡易版・チャット版は、AI(Claude)が発言を要約・言い換えたもので、誤りを含む場合があります。引用や確認の際は、フル版と会議録の原本をご確認ください。カコモの解説文もAI(Claude)が作成したものです。</p>
+        <p><b>免責</b><br>このサイトは、特定の議員・会派・主張を評価したり、陳情・請願の是非を判断したりするものではありません。</p>
+        <p><b>個人情報について</b><br>あなたの選択は、この端末のブラウザにだけ保存され、外部には送信されません。</p>
+        <p><b>訂正・お問い合わせ</b><br>chinjou.ojisan@gmail.com</p>
+      </div>
+    </details>
+    <footer class="end">陳情ジャッジ 加古川市議会</footer>
+  </main>
+</div>
+
+<!-- ============ CASE ============ -->
+<div id="case" class="screen" hidden>
+  <div class="hdr"><div class="in">
+    <button type="button" class="back" data-act="back" aria-label="一覧にもどる">‹ 一覧</button>
+    <div class="ttl" id="hdrTitle"></div>
+  </div></div>
+  <div class="chat" id="chat">
+    <div id="pre"></div>
+    <div id="post"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+'use strict';
+var DATA={"cases":[{"code":"C001","kind":"陳情","no":"第1号","year":"令和4年","received":"令和4年2月8日","title":"夫婦・親子同氏を維持し、旧姓の通称使用の拡充を求める意見書提出についての陳情","committee":"福祉環境常任委員会","status":"pending"},{"code":"C002","kind":"陳情","no":"第8号","year":"令和4年","received":"令和4年8月10日","title":"ごみ収集運搬業務に係る加古川市予算拡充と見直しについて","committee":"福祉環境常任委員会","status":"ready","items":[{"n":1,"text":"加古川市内ごみ収集及び運搬に係る予算において、賃金、設備、燃料等の価格上昇に見合った水準での確保・拡充及び委託における入札に頼らない方法等の検討をすること。","result":"不採択","note":"採択に賛成の挙手はありませんでした。"},{"n":2,"text":"借上げに係る契約単価を、昨今の情勢に見合った金額に改定すること。","result":"採択","note":"全会一致で採択されました。"}],"final":"一部採択","process":"8月18日に継続審査となり、9月7日に一部採択と決まりました。","thread":[{"sep":"令和4年8月18日 福祉環境常任委員会"},{"sec":"質疑"},{"who":"松本裕之委員長(進行)","role":"chair","full":"再開いたします。陳情審査を行います。まず、傍聴の方に申し上げます。加古川市議会委員会傍聴規則第８条及び第９条において、傍聴人は、議事についての可否の表明や、騒ぎ立てること、写真等の撮影、及び録音等は禁止されておりますので、ご注意くださいますようお願いいたします。陳情第８号、ごみ収集運搬業務に係る加古川市予算拡充と見直しについてを議題といたします。本陳情について、質疑、ご意見等をお伺いいたします。","simple":"陳情第8号(ごみ収集運搬業務予算)の審査を始めます。","chat":"審査スタート"},{"who":"橋本和彦委員","role":"member","full":"陳情内容の中で、市民生活を取り巻く環境の保全を継続的に行うという観点が重要となっているとあります。この中身と、それから、受託料が受託業務を遂行するに足りる額であると規定されていると書いてあります。足りる額というのはどう受け取っていいのかお伺いします。","simple":"「受託業務を遂行するに足りる額」ってどういう意味ですか?","chat":"『足りる額』ってなんの基準?","party":"無会派"},{"who":"菅野環境第１課副課長","role":"city","full":"継続性や安定性ということについてですが、ごみ収集というのが市行政の責務であるので、経済性ばかりを追求し金額的にあまりにも安過ぎてしまうと、結局、継続性や安定性が困難になってくるということです。受託料が受託業務を遂行するに足りる額であるということは、価格競争だけを重視するということで、収集などの業務に支障が出てくるような、あまりにも安い金額でということがないようにと、法律で決められていることになります。","simple":"安すぎると収集の継続や安定性が保てなくなる、という意味です。","chat":"安すぎたら収集止まるかもってことです"},{"who":"橋本和彦委員","role":"member","full":"例えば、ほかの地域から多くの事業者が入ってくるというような、責任を持てない状況で、精査されない段階ではそういう提案は受けないとか、そのような可能性はあるのですか。例えば、ほかの地域からこの業務に対して請け負いたいという団体があった場合、その団体がどのような団体なのかというのは分かり得るのでしょうか。","simple":"他の地域の業者が参入してくる可能性はあるんですか?","chat":"よその業者が入ってくることってある?","party":"無会派"},{"who":"菅野環境第１課副課長","role":"city","full":"加古川市内の廃棄物に関しては、加古川市内の一般廃棄物収集運搬の許可を持っている事業者が対象になりますので、例えば市外の事業者が加古川市の収集運搬に参入したいということになっても、それはできないということになります。","simple":"市内の許可業者しか対象にならないので、市外業者の参入はできません。","chat":"市外業者はそもそも入れません"},{"who":"中村亮太委員","role":"member","full":"まず、ごみの収集というのは入札で委託に出されているのですが、基本的に委託という面と、この廃棄物の処理ということを考えたときに、市の全責任であるということの認識についてお伺いしたいです。また、平成26年１月28日の福井県小浜市に対する一般廃棄物処理業許可取消等、損害賠償請求事件の最高裁判決を受けて平成26年10月８日付環境省大臣官房廃棄物・リサイクル対策部長通知が出ていますけれども、これに対しての認識というものをお伺いしたいと思います。","simple":"ごみ収集は市の全責任という認識でいいですか?最高裁判決や通知についてもどう考えていますか?","chat":"これって結局、市の責任だよね?","party":"創生加古川"},{"who":"菅野環境第１課副課長","role":"city","full":"ごみ収集の責務ということになると、一般廃棄物については市の責任、行政の責任という形では理解はしています。","simple":"一般廃棄物については市の責任だと理解しています。","chat":"はい、市の責任です"},{"who":"阿部環境部事業担当部長","role":"city","full":"先ほどの二つ目の質問ですけれども、一般廃棄物の収集に関していうと、先ほどからお話をさせていただいているとおり、当然のことながら経済性だけを求めるのではありません。確実に市民生活に大きな影響を及ぼすものですので、持続可能な形での事業の実施ということが求められるということは十分に認識をしているところです。その中で、複数の実施可能な業者がいる限りは、多少は競争性を高めていく必要があるのではないかというのが私どもの考え方で、そのあたりについては県内各自治体においても同様の取扱いをしているところですので、持続可能な形で、なおかつ競争性を高めていきたいと考えているところです。","simple":"経済性だけでなく持続可能性も重視しつつ、競争性も高めていきたいと考えています。","chat":"安さだけじゃなく、続けられることも大事にしてます"},{"who":"中村亮太委員","role":"member","full":"この大本になるのが廃棄物処理法になってこようかと思いますが、その目的というところでは、経済性だけでなく、業務が確実に履行できるように価格も含めてやりなさいというのが趣旨だと思います。それと一般の工事などの入札というものは、大本が廃棄物処理法であるというところと地方自治法第234条に書いてあるところで、基本的に別物だという認識を私は持っており、経済性ばかりを追い求めてはいけないというのがそこだと思うのです。そうした中で、まずその法の立てつけのところでどのようにご見解を持たれているのでしょうか。また、事業者がきちんと業務を履行できるようにしなければいけないというご認識はあるけれども、競争性も持たせなければいけないという答弁だったのですが、環境省の通知や最高裁判例にある廃棄物処理というものが競争性を持つ性格ではないという部分との整合性というか、そのあたりの考えというものをお聞かせいただきたいと思います。","simple":"廃棄物処理法は経済性より業務の確実な履行を求める趣旨。普通の入札とは性格が違うのでは?","chat":"これ普通の工事入札と一緒にしていいやつ?","party":"創生加古川"},{"who":"西澤環境第１課長","role":"city","full":"経済性のみでなく持続性であったりということを念頭に置いた上で対応していかないといけないということは、先ほど説明をさせていただいたとおりかと思っています。他方、一般市民に対する説明責任であるとか、あるいは契約の透明性、公平性等ともバランスを取りながら業務を進めていく必要があるとも考えています。そのあたりに関しては、例えば、委託契約については単年度契約ではなく、長期継続契約をもって、ある程度の担保をする等の対応をしており、現状のような業務の進め方、契約の仕方となっているということです。","simple":"経済性だけでなく持続性、透明性、公平性のバランスを取りながら進めています。長期継続契約で担保もしています。","chat":"いろいろバランス見ながらやってます"},{"who":"中村亮太委員","role":"member","full":"このような形の入札というものが基本的には競争性を高めるというところがあろうかと思いますが、その方法を取るということが廃棄物処理法の目的に関しても法的には問題ないという理解になるのですか。競争入札の形を取るということが廃棄物処理法には反しないということですか。","simple":"競争入札という方法自体は廃棄物処理法に反しないという理解でいいですか?","chat":"入札自体は法律違反じゃないんですよね?","party":"創生加古川"},{"who":"西澤環境第１課長","role":"city","full":"おっしゃるとおりです。","simple":"おっしゃるとおりです。","chat":"はい、その通りです"},{"who":"中村亮太委員","role":"member","full":"そのあたりで廃棄物処理法というものと、一般の入札というものがどのような形ですみ分けしていくのかというところがあろうかと思うのです。事業者もいろいろとご苦労されている中だと思うのですが、事業者の声であるとか、現状の経営の状態であるとか、そういったことを含めて、今、競争入札という方法を採用されていますが、今の委託料というものが業務の確実な履行水準を保つぐらいの水準であると理解されているのでしょうか。その辺を確認させていただきたいです。","simple":"今の委託料は業務の確実な履行水準を保てる金額だと理解していますか?","chat":"今の金額で本当に大丈夫?","party":"創生加古川"},{"who":"西澤環境第１課長","role":"city","full":"当然受託していただくに当たっては、人件費や燃料費、その他必要な経費というのは各事業所によって異なる部分が少なからずあろうかと思います。現在の契約は指名競争入札によって契約を行っているものですが、事業者においては、多少の価格変動等を含めて積算した額を入札した上で対応していただいていると認識しています。また、通常から組合等を通して、いろいろな意見交換であったり、要望書をいただいたりというようなことでの対応等もしていますので、今後とも調整等を行いながら、業務のほうを進めていきたいと考えているところです。","simple":"各事業者が価格変動を含めて積算した額で入札しており、組合との意見交換も継続しています。","chat":"業者さんの声も聞きながらやってます"},{"who":"中村亮太委員","role":"member","full":"廃棄物処理ということにおいて、廃棄物処理法があります。指名競争入札を行っているのですが、ほかの工事などの競争入札とは性格が違って、業者が確実に履行する価格をしっかりと担保していかないといけないということは、当局として認識を持っているのかという点を最後に確認させていただきたいと思います。","simple":"廃棄物処理は普通の工事入札と性格が違う。履行できる価格を担保する認識はありますか?最後の確認です。","chat":"ちゃんと担保する気ある?最後の確認","party":"創生加古川"},{"who":"西澤環境第１課長","role":"city","full":"もちろん法律で定められた必要な額を担保していかなければならないという認識でいます","simple":"もちろん法律で定められた必要な額を担保していかなければならないという認識でいます。","chat":"はい、ちゃんと担保します"},{"who":"山本一郎委員","role":"member","full":"陳情事項１には入札に頼らない方法と書かれていますが、現状において、加古川市が行っている契約の期間であったり、加古川市は競争入札しているけれども、他市がどういう状況なのか、そのあたりの全体を教えていただいてもよろしいでしょうか。","simple":"入札に頼らない方法について、加古川市の契約期間や他市の状況を教えてください。","chat":"他の市はどうなってる?","party":"市民クラブ"},{"who":"菅野環境第１課副課長","role":"city","full":"まず、委託契約の年数ですが、今回は３年間の契約という形でさせていただいています。他市の状況については、人口が10万人以上の市等で随意契約をしている自治体が２か所、あとは入札や見積り合わせという形の方法を取られているところがあると思います。人口規模が小さいところになればなるほど随意契約という形が多く見受けられます。","simple":"今回は3年契約。人口10万人以上の市で随意契約は2か所、他は入札や見積り合わせが多いです。","chat":"3年契約です。随意契約の市は少数派です"},{"who":"西澤環境第１課長","role":"city","full":"補足させていただきます。先ほどの答弁の人口10万人以上の自治体のうち、２つの自治体において随意契約ということですけれども、そのうちの１つの自治体は、加古川市と同じように指名競争入札も実施しており、併用ということです。実際には10万人以上の10都市のうち１か所だけ組合との随意契約を行っているという状況かと思います。","simple":"補足です。随意契約の2市のうち1市は加古川と同様に指名競争入札も併用しています。","chat":"その2市も実は入札も併用してます"},{"who":"山本一郎委員","role":"member","full":"先ほど中村委員が質問した部分に対する説明の中で、確かに公共性の部分で担保するので期間を設けていますという部分が、多分３年ということかと思って聞いていましたが、それは他市でいうと実は５年のところとか10年のところとか、より長い期間担保しているようなところはあるのですか。その３年の根拠は何ですかという聞き方が正しいのか、ほかの市の期間を教えてくださいという質問が正しいのか分からないのですが、もう少し情報をいただけますか。","simple":"3年という期間の根拠は?他市には5年、10年のところもあるんですか?","chat":"なんで3年契約なの?","party":"市民クラブ"},{"who":"菅野環境第１課副課長","role":"city","full":"その期間についてですが、今回は、ごみの運搬先が昨年11月より加古川市のクリーンセンターから高砂市のエコクリーンピアはりまに変わるということもあり、あまり長い契約期間ということにすると、その状況がどうなるかということが細かく見えていなかったので、３年という形でさせていただいています。ですので、状況によっては、できるようでしたら５年としているところもあるとは思いますし、全然ないということはありませんが、そのときの状況に応じてということにはなります。","simple":"クリーンセンターが高砂市のエコクリーンピアはりまに移ったばかりで先が見通しにくいため3年にしました。5年の例もあります。","chat":"クリーンセンターの引っ越しのタイミングだったので"},{"who":"山本一郎委員","role":"member","full":"確かに担保の部分でいくと、事業者からしたら契約期間を長くしてもらったら、その分、投資等もしやすいというところもあると思うのです。逆にその間の変動が大きければ大きいほど、リスクが高くなるというような話にもなるかと思って聞きますが、例えば、３年とかそれが長期になってきたときに、ガソリン代がこれだけ上がったらこうするというような契約を結ぶことは理屈的に可能なのでしょうか。また、過去に３年契約とかをしていて、こういう事情があって、このときは契約金を補正で上乗せしたというようなことはあったのか、今分かるのであれば教えてもらっていいですか。","simple":"契約期間中に物価上昇があった場合、契約に反映させる条項を結ぶことは可能ですか?過去に補正した例は?","chat":"物価上がったら契約金額変えられる?","party":"市民クラブ"},{"who":"菅野環境第１課副課長","role":"city","full":"契約において、そのような条項が入れられるのかどうか、契約年数が３年とか５年とか長くなればなるほど、もちろんリスクは高くなると考えるので、そちらのほうをどうするかということだと思いますが、そういうことは全く想定にないということではないと考えます。また、過去において契約金額から補正を置いたことがあるのかという質問ですけれども、収集量が市の最初の見積りと大幅に違っていたために補正を置いたということはあります。燃料費などが上がったのでということではないと認識しています。","simple":"そうした条項は想定にないわけではありません。過去には収集量の見積り差で補正した例はありますが、燃料費高騰が理由ではありません。","chat":"条項自体はアリです。過去に補正した例もあります"},{"who":"山本一郎委員","role":"member","full":"価格の分は想定できないことはないということは、法律的にそのような条項を入れ込むことはできないわけではないと理解しておきます。陳情事項２について、借上げに係る契約単価を昨今の情勢に見合った金額に改定することと書かれていますが、実際、ずっと組合と単年度契約を締結しているので、それは毎年どうですか、どうなっていますか、大丈夫ですかというような、その調整はあまりしていないということですか。そのあたりの状況を教えてもらっていいですか。","simple":"借上げ(仮設トイレ等)の単価は毎年ちゃんと調整されているんですか?","chat":"借上げの方の単価調整はしてる?","party":"市民クラブ"},{"who":"菅野環境第１課副課長","role":"city","full":"こちらの借上げについては１年の契約という形になっていますので、金額等を決める際には、要望等をいただきましたら、それを基に検討するつもりではいます。","simple":"借上げは1年契約なので、要望があればそれを基に検討するつもりです。","chat":"要望があれば検討します"},{"who":"山本一郎委員","role":"member","full":"市としてはきちんと調整しているということでしょうが、実際はやはり思いが届いていなくて苦しいということだと思うので、その部分はもう少し工夫を重ねていただきたいと思います。きちんと調整しているにもかかわらず、昨今の情勢に見合った金額というこのような表現が出てこないようにしてほしいと思います。","simple":"調整しているならその旨がもっと伝わるようにしてほしいです。","chat":"もっと伝わるようにしてほしいな","party":"市民クラブ"},{"who":"木谷万里委員","role":"member","full":"いつから入札に移行したのかということと、平成26年の最高裁の判決と通知を受けてからの入札方法について変化があったのかどうか教えてください。","simple":"いつから入札に移行し、平成26年の最高裁判決後に方式は変わりましたか?","chat":"最高裁判決の後、何か変わった?","party":"創生加古川"},{"who":"菅野環境第１課副課長","role":"city","full":"まず、平成20年から見積り合わせのほうに移行しています。それまでは一者随契でした。平成25年からは指名競争入札という形を取っています。通知の後ですが、そちらに担保というのもありますが、やはり透明性等との兼ね合いというのがあると思いますので、今回のようなエコクリーンピアはりまへの移行で期間を３年にしたりということはありますが、最高裁の判決をもって一者随契に移行しようというような動きは今のところありません。","simple":"平成20年に見積り合わせ、25年から指名競争入札に。判決後も一者随契に戻す動きはありません。","chat":"特に変わってません"},{"who":"中山俊明委員","role":"member","full":"先ほど中村委員の質問で高騰を見込んで入札しているとの答弁でして、資材が高騰した際にプラスにできる制度があると聞いているのですが、そこにはガソリン代は含まれますか。","simple":"物価高騰時にプラスできる制度にガソリン代は含まれますか?","chat":"ガソリン代も値上げ対象に入る?","party":"加古川維新の会"},{"who":"阿部環境部事業担当部長","role":"city","full":"契約のことに関していうと、今結んでいる契約の条項の中において、物価上昇に伴う協議を行って価格を変動するという条項は入れておりません。例えば、建設工事といった契約については物価スライド条項というものがございます。ただ、加古川市が現在行っている委託契約、例えば十何年間とかいうような長期のものについては、そういった物価上昇等の項目はあるのですが、通常の３年程度のものについては、そういった項目がほとんど入っていないと記憶しています。ですので、そういった物価の上昇に関していうと、入札時にそうしたリスクも含めて応札していただくというのが原則と考えています。ただ、すごく価格が上昇してしまってどうしても回らないということであれば、最終的には甲乙協議の上という項目があるので、その中での対応というものは可能かとは考えています。では、どの程度になれば、そういったものが発動するのかといったことについては決まったものがありません。逆に言うと、例えば、国からかなり物価が上昇したので契約を見直せというような通知がありましたら、それに応じてやっていくことになっていくかと思っています。今回のこの契約の条項自体は、市全体の契約条項とはそう大きく変化がない、あまりほかとは変わらない条項となっていますので、物価の上昇に伴って変更しなければならないということであれば、全庁的な見直しが必要かと考えているところです。","simple":"現行の契約に物価スライド条項はありません。大きく上昇した場合は甲乙協議で対応可能です。","chat":"条項自体はないけど、協議すれば対応できます"},{"who":"山﨑兼次委員","role":"member","full":"この陳情の中の人件費、社会保障費、燃料費、車両を含めた設備費、環境問題に配慮するための各費用の高騰によりと書いてあるのですが、実際、指名競争入札をするのであれば、今あったとおり、そのような事業者の声も含めて入札になるかと思います。その点についてどのように捉えているのかというのを教えてもらっていいですか。","simple":"人件費や燃料費の高騰について、入札にはどう反映されていますか?","chat":"コスト高騰って入札にちゃんと反映されてる?","party":"公明党議員団"},{"who":"西澤環境第１課長","role":"city","full":"業務を遂行していただくに当たっては、人件費、あるいは燃料費、また社会保障費等の費用が必要になるかということだと思います。また、その費用というのは、多少なりとも変動が見込まれるということになっておろうかと思います。そこの部分に関して、行政の側から、その部分をどうこうということで価格等の指示をするわけではないので、それぞれの費用に事業者の利益等を見込んだ上で応札し、応していただくということで、事業のほうを進めているということです。","simple":"事業者が各費用の変動を見込んで応札しているという認識です。","chat":"業者さんが見込んで入札してます"},{"who":"山﨑兼次委員","role":"member","full":"その続きで事業を健全かつ適正に将来にわたって持続していくことが困難になりつつあるというような事業者の声が上がってきて、それを集約していますという話でしたが、そのような声はどのような形で出ているのかを教えていただいていいですか。","simple":"事業継続が困難になりつつあるという業者の声はどう集約していますか?","chat":"業者さんの悲鳴ってどう拾ってるの?","party":"公明党議員団"},{"who":"西澤環境第１課長","role":"city","full":"今年度に入ってからも組合から環境第１課に来庁していただいて、業務の状況や実際の事業の進め方などについて意見交換等を行っています。これまでからそのような進め方をしていますので、ある面は意見の聴取ということで伺い、今後の事業に、行政サービスにつなげていきたいと考えているところです。","simple":"組合と定期的に意見交換をして声を聞いています。","chat":"定期的に話は聞いてます"},{"who":"橋本和彦委員","role":"member","full":"競争入札ということがたびたび言われるのですが、陳情事項１に入札に頼らない方法等の検討をすることと書いていますが、これはどういう意味なのでしょうか。","simple":"「入札に頼らない方法」とはどういう意味ですか?","chat":"『入札に頼らない方法』ってどういうこと?","party":"無会派"},{"who":"菅野環境第１課副課長","role":"city","full":"入札以外ということになりますと、あとは見積り合わせか随意契約という形になろうかと思います。","simple":"入札以外だと見積り合わせか随意契約になります。","chat":"見積り合わせか随意契約のことです"},{"sec":"各会派の態度表明"},{"who":"中山俊明委員","role":"member","full":"加古川維新の会を代表し、陳情第８号に対し態度表明をいたします。一般廃棄物の収集運搬業務は、市民生活を支える大変重要な社会インフラであることは言うまでもありません。また、近年の経済環境のため、経費の高騰により、経営が逼迫し、委託先の業務に影響が出るという心配は確かにあります。陳情事項を確認すると、高騰した費用の価格上昇に見合った水準を確保するために入札以外の方法を検討すること、借上げに係る契約単価を改定することとありますが、以下の理由から継続審査を求めます。本市では、税金を使うことから入札を採用していますが、仮に入札制度をやめようとすると、競争原理に基づいて契約の相手方を決定することが必ずしも適当ではないとするエビデンスが必要であるのではないかということ、また、入札以外にどのような方法で適正価格を求めるのかは、例えば随契なのか、条例で定めるのかでは議論がそれぞれ違うために入札以外は何であるかという具体性に欠けること、そして、入札制度であっても、予定価格の制限範囲や最低制限価格を高くする方法も考えられることから、状況は理解できますが、多くの議論が必要なために継続審査を求めます。","simple":"廃棄物収集は重要インフラ。経営逼迫は理解するが、入札撤廃の根拠や具体性に欠けるため継続審査を求めます。","chat":"大事な話だけど、まだ詰めが甘いから継続審査で","party":"加古川維新の会"},{"sec":"継続審査の採決"},{"who":"松本裕之委員長(進行)","role":"chair","full":"ご意見等を終結いたします。継続審査のご意見がございましたので、お諮りいたします。本件について、継続審査とすることに賛成の方は挙手願います。","simple":"継続審査について挙手を求めます。","chat":"採決します"},{"who":"松本裕之委員長(進行)","role":"chair","full":"挙手全員であります。よって、本件は全会一致で継続審査とすることに決定いたしました。理事者入替えのため、しばらくの間、休憩いたします。","simple":"全会一致で継続審査に決定。休憩します。","chat":"継続審査に決まりました"},{"sep":"令和4年9月7日 福祉環境常任委員会(継続審査の再開)"},{"who":"松本裕之委員長(進行)","role":"chair","full":"再開いたします。陳情審査を行います。陳情第８号、ごみ収集運搬業務に係る加古川市予算拡充と見直しについてを議題といたします。本陳情について、質疑、ご意見等をお伺いいたします。","simple":"陳情第8号の審査を再開します。","chat":"審査再開"},{"sec":"各会派の態度表明"},{"who":"山本一郎委員","role":"member","full":"陳情事項２の借上げの契約単価については、単年度ごとの契約でもあり、時世に合わせた単価となるように努力を重ねていただきたいという旨をお伝えし、賛同いたします。陳情事項１については、陳情にもあるように、業務の継続性や安定的な遂行ができるよう、今後、契約期間や燃料調整費の導入など工夫できる点はあると思いますが、契約後の賃金、設備、燃料等の価格上昇に見合った水準への柔軟な対応や、また、入札に頼らない方法を検討することは現時点で困難と考えます。以上の理由で会派としては一部採択を提案いたします。","simple":"事項2(借上げ単価)は賛同、事項1(入札撤廃)は現時点で困難。会派として一部採択を提案。","chat":"事項2はOK、事項1はまだ難しい。一部採択でどう?","party":"市民クラブ"},{"who":"中村亮太委員","role":"member","full":"意見表明をさせていただきます。前提としまして、どのような委託であっても市の責務というところではありますが、特にこの廃棄物の処理に関しては、公衆衛生に当たるものであり、市民生活に大きな影響を及ぼすものであるため、より重い責務があると確認させていただきました。その中で、背景として訴えられている急激な原油高や人件費増をはじめとする社会情勢の変化は大きなリスクであり、憲法に規定される生存権に対するリスクとも考えられ、行政の適切な対応が求められると思っています。以上から、環境省としても示していますように、委託料が受託業務を遂行するに足りる額であること、経済性の確保等の要請ではなく業務の確実な履行を求める基準であることが必要であると考えます。陳情事項として２点ありますけれども、その考えを基に陳情事項に対する意見を申し上げます。まず、陳情事項２については、借上げに関する陳情であり、これについては単年契約となっています。次年度に向けての予算要求において、現状を反映した予算確保を求めます。次に、陳情事項１ですが、現在は３年契約で加古川清掃事業協同組合と契約中であります。次の更新に向けて、事業者の状況を確認しながら、業務の確実な履行ができる予算確保をお願いしたいと思います。一方で、契約の方法は、当面現行どおりで構わないと思いますが、国のほうでも議論があるようですので、今後の動向を注視しつつ、調査、検討をしていただければと思っています。何より事業者は、この業務を遂行するパートナーということで、しっかりとコミュニケーションを取って事業遂行を求めたいと思っています。","simple":"廃棄物処理は公衆衛生に関わる重い責務。事項2は予算確保を求め、事項1は現行どおりで動向注視を要望。","chat":"事項2は予算つけて、事項1は今のまま様子見で","party":"創生加古川"},{"sec":"採決"},{"who":"松本裕之委員長(進行)","role":"chair","full":"今回の陳情に関して、一部採択のご意見がございましたので、お諮りいたします。本件について、一部採択とすることに賛成の方は挙手をお願いいたします。（賛成者挙手）挙手全員であります。よって、本件は全会一致で一部採択とすることに決定いたしました。それでは、項目ごとにお諮りいたします。陳情事項１について、採択することに賛成の方は挙手願います。（挙手なし）挙手なしであります。よって、陳情事項１は採択しないことに決定いたしました。陳情事項２についてお諮りいたします。陳情事項２について、採択することに賛成の方は挙手をお願いいたします。（賛成者挙手）挙手全員であります。よって、陳情事項２は全会一致で採択することに決定いたしました。以上で陳情審査を終わります。理事者入替えのため、しばらくの間、休憩いたします。","simple":"一部採択で全会一致。事項1は不採択、事項2は採択に決定。","chat":"一部採択に決まりました(事項1×、事項2〇)"}]},{"code":"C003","kind":"陳情","no":"第9号","year":"令和4年","received":"令和4年9月26日","title":"配偶者暴力ガイドラインに必要な子の奪取という要件について","committee":"福祉環境常任委員会","status":"pending"},{"code":"C004","kind":"陳情","no":"第１号","year":"令和5年","received":"令和４年11月28日","title":"民主主義・立憲主義の基盤である思想・良心の自由、請願権等を守る為の陳情","committee":"総務教育常任委員会","status":"pending"},{"code":"C005","kind":"陳情","no":"第６号","year":"令和5年","received":"令和５年５月25 日","title":"全国霊感商法対策弁護士連絡会の不当な声明に対する陳情","committee":"福祉環境常任委員会","status":"pending"},{"code":"C006","kind":"陳情","no":"第７号","year":"令和5年","received":"令和５年10月６日","title":"一般廃棄物収集運搬業務委託に関する陳情書","committee":"福祉環境常任委員会","status":"pending"},{"code":"C007","kind":"陳情","no":"第１号","year":"令和6年","received":"令和６年２月５日","title":"政党機関紙の庁舎内勧誘行為の実態調査を求める陳情","committee":"総務教育常任委員会","status":"pending"},{"code":"C008","kind":"陳情","no":"第２号","year":"令和6年","received":"令和６年２月８日","title":"パンデミック条約締結および国際保健規則改正に関する陳情","committee":"福祉環境常任委員会","status":"pending"},{"code":"C009","kind":"陳情","no":"第３号","year":"令和6年","received":"令和６年５月９日","title":"ガザ地区の人命保護および即時停戦を求める決議を求める陳情","committee":"総務教育常任委員会","status":"pending"},{"code":"C010","kind":"陳情","no":"第４号","year":"令和6年","received":"令和６年５月27 日","title":"過去に提出された陳情・請願の情報公開拡充を求める陳情","committee":"議会運営委員会","status":"unpublished"},{"code":"C011","kind":"陳情","no":"第５号","year":"令和6年","received":"令和６年５月27 日","title":"常任委員会のインターネットライブ配信等を求める陳情","committee":"議会運営委員会","status":"unpublished"},{"code":"C012","kind":"陳情","no":"第６号","year":"令和6年","received":"令和６年７月１日","title":"近隣住民の騒音、迷惑行為、嫌がらせ等の迷惑防止条例の制定について","committee":"福祉環境常任委員会","status":"pending"},{"code":"C013","kind":"陳情","no":"第８号","year":"令和6年","received":"令和６年８月28 日","title":"ＨＰＶワクチンの男子（小学６年生～高校１年生）への接種補助について","committee":"福祉教育常任委員会","status":"pending"},{"code":"C014","kind":"陳情","no":"第10号","year":"令和6年","received":"令和６年９月６日","title":"ｍＲＮＡワクチン接種の中止等の意見書の提出を求める陳情書","committee":"福祉教育常任委員会","status":"pending"},{"code":"C015","kind":"陳情","no":"第11号","year":"令和6年","received":"令和６年９月10 日","title":"新型コロナワクチン接種時のインフォームドコンセントについて","committee":"福祉教育常任委員会","status":"pending"},{"code":"C016","kind":"陳情","no":"第１号","year":"令和7年","received":"令和７年１月９日","title":"フリースクール等及び不登校児童生徒の保護者への公的支援を求める意見書を国と兵庫県に提出することを求める陳情","committee":"福祉教育常任委員会","status":"pending"},{"code":"C017","kind":"陳情","no":"第２号","year":"令和7年","received":"令和７年１月１６日","title":"放課後等デイサービスにおける上限支給量特例判定基準の緩和を求める陳情","committee":"福祉教育常任委員会","status":"pending"},{"code":"C018","kind":"陳情","no":"第６号","year":"令和7年","received":"令和７年４月８日","title":"加古川市立公民館の設置及び管理に関する条例施行規則の一部補正（補足）について","committee":"福祉教育常任委員会","status":"pending"},{"code":"C019","kind":"陳情","no":"第７号","year":"令和7年","received":"令和７年４月18 日","title":"まちづくりオープンミーティングにおける情報公開の充実を求める陳情","committee":"総務常任委員会","status":"pending"},{"code":"S001","kind":"請願","no":"第1号","year":"令和4年","received":"令和4年2月10日","title":"生理用品を学校施設の女子トイレ個室に設置することを求める請願書","committee":"総務教育常任委員会","status":"pending"},{"code":"S002","kind":"請願","no":"第2号","year":"令和4年","received":"令和4年8月25日","title":"少人数学級・教職員定数の改善及び義務教育費国庫負担制度２分の１復元に関する件","committee":"総務教育常任委員会","status":"pending"},{"code":"S003","kind":"請願","no":"第３号","year":"令和4年","received":"令 和 ４ 年８月 26 日","title":"小・中学校・養護学校の全児童・生徒の給食費を無償化することを求める請願書","committee":"総務教育常任委員会","status":"pending"},{"code":"S004","kind":"請願","no":"第４号","year":"令和4年","received":"令 和 ４ 年８月 26 日","title":"消費税インボイス制度の実施中止を求める意見書の提出を求める請願","committee":"総務教育常任委員会","status":"pending"},{"code":"S005","kind":"請願","no":"第５号","year":"令和4年","received":"令 和 ４ 年11 月 21 日","title":"加齢性難聴者のための補聴器購入費助成制度の実施を求める請願書","committee":"福祉環境常任委員会","status":"pending"},{"code":"S006","kind":"請願","no":"第１号","year":"令和5年","received":"令 和 ５ 年２月 13 日","title":"旧加古川図書館の保存と活用を求める請願書","committee":"総務教育常任委員会","status":"pending"},{"code":"S007","kind":"請願","no":"第２号","year":"令和5年","received":"令 和 ５ 年５月 25 日","title":"自転車ヘルメットの購入費助成の実施を求める請願書","committee":"福祉環境常任委員会","status":"pending"},{"code":"S008","kind":"請願","no":"第３号","year":"令和5年","received":"令 和 ５ 年８月 25 日","title":"少人数学級・教職員定数の改善及び義務教育費国庫負担制度２分の１復元に関する件","committee":"総務教育常任委員会","status":"pending"},{"code":"S009","kind":"請願","no":"第４号","year":"令和5年","received":"令 和 ５ 年８月 28 日","title":"インボイス制度の実施延期を求める意見書を政府に提出することを求める","committee":"総務教育常任委員会","status":"pending"},{"code":"S010","kind":"請願","no":"第５号","year":"令和5年","received":"令 和 ５ 年８月 28 日","title":"現行の健康保険証を存続するよう国に意見書をあげることを求める請願書","committee":"福祉環境常任委員会","status":"pending"},{"code":"S011","kind":"請願","no":"第１号","year":"令和6年","received":"令 和 ６ 年５月 21 日","title":"「核兵器禁止条約」に署名・批准を求める請願","committee":"総務教育常任委員会","status":"pending"},{"code":"S012","kind":"請願","no":"第２号","year":"令和6年","received":"令 和 ６ 年８月 30 日","title":"不登校児童生徒に対して多様な学習機会を確保するための経済的支援制度の確立について","committee":"福祉教育常任委員会","status":"pending"},{"code":"S013","kind":"請願","no":"第３号","year":"令和6年","received":"令 和 ６ 年８月 30 日","title":"民間施設の利用を希望する不登校児童生徒及び保護者への経済的支援を求める請願","committee":"福祉教育常任委員会","status":"pending"},{"code":"S014","kind":"請願","no":"第４号","year":"令和6年","received":"令 和 ６ 年９ 月 ２ 日","title":"旧加古川図書館を市民の誰もが利用できる場として存続することを求める請願書","committee":"総務常任委員会","status":"pending"},{"code":"S015","kind":"請願","no":"第５号","year":"令和6年","received":"令 和 ６ 年９ 月 ２ 日","title":"小・中学校の体育館に空調設備を設置することを求める請願書","committee":"福祉教育常任委員会","status":"pending"},{"code":"S016","kind":"請願","no":"第６号","year":"令和6年","received":"令 和 ６ 年11 月 25 日","title":"学校給食の無償化を求める意見書の提出及び地元食材を生かした学校給食の実施を求める請願","committee":"福祉教育常任委員会","status":"pending"},{"code":"S017","kind":"請願","no":"第１号","year":"令和7年","received":"令 和 ７ 年２月 10 日","title":"「選択的夫婦別姓制度をただちに導入するための国会審議を求める意見書」の提出を求める請願書","committee":"総務常任委員会","status":"pending"},{"code":"S018","kind":"請願","no":"第２号","year":"令和7年","received":"令 和 ７ 年５月 22 日","title":"小中学校の体育館に空調設備を早急に設置することを求める請願書","committee":"福祉教育常任委員会","status":"pending"},{"code":"S019","kind":"請願","no":"第３号","year":"令和7年","received":"令 和 ７ 年８月 26 日","title":"少人数学級・教職員定数の改善及び義務教育費国庫負担制度２分の１復元に関する件","committee":"福祉教育常任委員会","status":"pending"},{"code":"S020","kind":"請願","no":"第４号","year":"令和7年","received":"令 和 ７ 年11 月 21 日","title":"市民が利用しやすいかこバスの運行改善と高齢者向けにバス・タクシー優待利用券の交付を求める請願書","committee":"産業環境常任委員会","status":"pending"}]};
+var CASES=DATA.cases;
+var KEY='chinjoujudge_v1';
+var CH=['採択','不採択','継続審査'];
+var AV='kakomo.png';
+var MODES=[
+  {k:'chat',  label:'チャット版', cap:'AIが会話調に言い換えたものです。'},
+  {k:'simple',label:'簡易版',     cap:'AIが発言を短くまとめたものです。'},
+  {k:'full',  label:'フル版',     cap:'議事録の全文です。'}
+];
+
+function $(s,r){return (r||document).querySelector(s)}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+
+var S={cases:{},mode:'chat',open:null};
+try{var t=JSON.parse(localStorage.getItem(KEY)); if(t&&typeof t==='object'){S.cases=t.cases||{};S.mode=t.mode||'chat'}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({cases:S.cases,mode:S.mode}))}catch(e){}}
+function stateOf(c){ if(!S.cases[c.code]) S.cases[c.code]={choices:{},revealed:false}; return S.cases[c.code]; }
+
+var navigated=false, homeY=0, cur=null;
+
+/* ---------- home ---------- */
+function statusOf(c){
+  if(c.status==='pending') return {t:'準備中',cls:'off'};
+  if(c.status==='unpublished') return {t:'議事録未公開',cls:'off'};
+  var st=S.cases[c.code];
+  if(st&&st.revealed) return {t:'判断済み',cls:'on'};
+  if(st&&Object.keys(st.choices||{}).length) return {t:'選択中',cls:''};
+  return {t:'未判断',cls:''};
+}
+function caseRow(c){
+  var s=statusOf(c);
+  var inner='<span class="tag '+(c.kind==='請願'?'req':'pet')+'">'+esc(c.kind)+'</span><span class="ttl">'+esc(c.title)+'</span><span class="st">'+s.t+'</span>';
+  if(c.status==='ready') return '<a class="case '+s.cls+'" href="#/case/'+c.code+'" data-act="open">'+inner+'</a>';
+  return '<div class="case off">'+inner+'</div>';
+}
+function renderHome(){
+  var years=[]; CASES.forEach(function(c){ if(years.indexOf(c.year)<0) years.push(c.year); });
+  var first=CASES.filter(function(c){return c.status==='ready'})[0];
+  var openYear=(S.open==='none')?null:(S.open||(first&&first.year));
+  $('#years').innerHTML=years.map(function(y){
+    var list=CASES.filter(function(c){return c.year===y});
+    var p=list.filter(function(c){return c.kind==='陳情'}).length, q=list.length-p, open=(y===openYear);
+    return '<section class="year" data-open="'+open+'"><button type="button" data-act="year" data-year="'+esc(y)+'" aria-expanded="'+open+'"><span>'+esc(y)+'度</span><span class="sub">陳情'+p+'件・請願'+q+'件</span></button><div class="cases"'+(open?'':' hidden')+'>'+list.map(caseRow).join('')+'</div></section>';
+  }).join('');
+}
+
+/* ---------- case ---------- */
+function kk(h){ return '<div class="msg kk"><div class="ava"><img src="'+AV+'" alt=""></div><div class="col"><div class="name">カコモ</div><div class="bub">'+h+'</div></div></div>'; }
+function overall(vals){
+  var u=vals.filter(function(v,i){return vals.indexOf(v)===i});
+  if(u.length===1) return u[0];
+  if(u.indexOf('継続審査')<0) return '一部採択';
+  return '項目ごとに判断が分かれました';
+}
+function preHTML(c){
+  var st=stateOf(c), multi=c.items.length>1, ik=c.kind+'事項', h='';
+  h+=kk(esc(c.year)+'度の'+esc(c.kind)+'です。'+esc(c.committee)+'で審査されました。要旨を読んで、'+(multi?'項目ごとに':'')+'あなたの判断を選んでください。');
+  h+='<div class="card head"><div class="meta">'+esc(c.kind)+' '+esc(c.no)+'(受理 '+esc(c.received)+')</div><h2>'+esc(c.title)+'</h2></div>';
+  c.items.forEach(function(it){
+    var label=multi?(ik+it.n):'要旨';
+    h+=kk('<div class="lab">'+esc(label)+'</div>'+esc(it.text));
+    h+='<div class="ask">あなたの判断は?</div><div class="qr" role="group" aria-label="'+esc(label)+'への判断" data-locked="'+st.revealed+'">'+
+      CH.map(function(v){return '<button type="button" data-act="choose" data-item="'+it.n+'" data-val="'+v+'" aria-pressed="'+(st.choices[it.n]===v)+'"'+(st.revealed?' disabled':'')+'>'+v+'</button>'}).join('')+'</div>';
+  });
+  var all=c.items.every(function(it){return st.choices[it.n]});
+  if(!st.revealed){
+    h+='<button type="button" class="go" data-act="reveal"'+(all?'':' disabled')+'>加古川市議会での審議はこちら</button>'+(all?'':'<p class="hint">すべての項目を選ぶと開きます</p>');
+  }
+  return h;
+}
+function postHTML(c,anim){
+  var st=stateOf(c), multi=c.items.length>1, ik=c.kind+'事項';
+  var mine=c.items.map(function(it){return st.choices[it.n]});
+  var h=kk('委員会での審査結果は、こちらです。');
+  h+='<div class="card result'+(anim?' pop':'')+'" id="result"><div class="rt">'+esc(c.committee)+'の結果</div>'+
+     '<div class="final"><b>'+esc(c.final)+'</b></div>'+
+     (c.process?'<p class="proc">'+esc(c.process)+'</p>':'');
+  c.items.forEach(function(it){
+    var m=st.choices[it.n], same=(m===it.result);
+    h+='<div class="rrow"><div class="rn">'+esc(multi?(ik+it.n):'審査結果')+'</div>'+
+       '<div class="rv"><span class="k">あなた</span><span class="pill'+(same?' blue':'')+'">'+esc(m)+'</span><span class="k">委員会</span><span class="pill fill">'+esc(it.result)+'</span></div>'+
+       '<div class="rs"><em>'+(same?'あなたと同じ判断でした。':'あなたと異なる判断でした。')+'</em>'+(it.note?' '+esc(it.note):'')+'</div></div>';
+  });
+  if(multi){ var ov=overall(mine); h+='<div class="sum">'+(ov.indexOf('分かれ')>=0?'あなたの判断は、項目ごとに分かれました。':'あなたの判断を全体でまとめると、「'+esc(ov)+'」にあたります。')+'</div>'; }
+  h+='<p class="fine">議会の結論が唯一の正解というわけではありません。</p></div>';
+  h+=kk('ここからは、実際の審議です。表示は3つから選べます。');
+  h+='<section id="debate"><h2 class="dh">加古川市議会での審議</h2><div class="tabs"><div class="seg" role="tablist" aria-label="表示のしかた">'+
+     MODES.map(function(m){return '<button type="button" role="tab" data-act="mode" data-mode="'+m.k+'" aria-selected="false">'+m.label+'</button>'}).join('')+
+     '</div><p class="cap" id="cap"></p></div><div id="thread"></div></section>'+
+     '<button type="button" class="ghost" data-act="back">一覧にもどる</button>';
+  return h;
+}
+function threadHTML(c,mode){
+  return c.thread.map(function(m){
+    if(m.sep) return '<div class="sep"><span>'+esc(m.sep)+'</span></div>';
+    if(m.sec) return '<div class="sec"><span>'+esc(m.sec)+'</span></div>';
+    var body = mode==='full'
+      ? '<div class="t full">'+esc(m.full)+'</div>'
+      : '<div class="t">'+esc(m[mode]||m.simple||m.full)+'</div><button type="button" class="more" data-act="full" aria-expanded="false">全文を読む</button><div class="ft" hidden>'+esc(m.full)+'</div>';
+    if(m.role==='chair') return '<div class="chair"><div class="name">'+esc(m.who)+'</div>'+body+'</div>';
+    var city=(m.role==='city');
+    return '<div class="msg '+(city?'r':'l')+'"><div class="ava'+(city?' city':'')+'" aria-hidden="true">'+(city?'市':'議')+'</div><div class="col"><div class="name">'+esc(m.who)+(m.party?'<span class="party">'+esc(m.party)+'</span>':'')+'</div><div class="bub">'+body+'</div></div></div>';
+  }).join('');
+}
+function renderThread(){
+  if(!cur||!$('#thread')) return;
+  $('#post').setAttribute('data-mode',S.mode);
+  $('#thread').innerHTML=threadHTML(cur,S.mode);
+  var md=MODES.filter(function(m){return m.k===S.mode})[0];
+  $('#cap').textContent=md.cap;
+  document.querySelectorAll('[data-act="mode"]').forEach(function(b){b.setAttribute('aria-selected',String(b.dataset.mode===S.mode))});
+}
+function renderPre(){ $('#pre').innerHTML=preHTML(cur); }
+function renderPost(anim){
+  var st=stateOf(cur);
+  if(st.revealed){ $('#post').innerHTML=postHTML(cur,anim); renderThread(); }
+  else $('#post').innerHTML='';
+}
+function showCase(c){
+  cur=c; stateOf(c);
+  $('#home').hidden=true; $('#case').hidden=false;
+  $('#hdrTitle').textContent=c.kind+' '+c.no+' '+c.title;
+  document.title=c.title+' | 陳情ジャッジ';
+  renderPre(); renderPost(false);
+  window.scrollTo(0,0);
+}
+function showHome(){
+  cur=null;
+  $('#case').hidden=true; $('#home').hidden=false;
+  document.title='陳情ジャッジ 加古川市議会';
+  renderHome();
+  window.scrollTo(0,homeY);
+}
+function route(){
+  var m=location.hash.match(/^#\/case\/(\w+)/);
+  if(m){ var c=CASES.filter(function(x){return x.code===m[1]&&x.status==='ready'})[0]; if(c){ showCase(c); return; } }
+  showHome();
+}
+
+/* ---------- events ---------- */
+document.addEventListener('click',function(e){
+  var b=e.target.closest('[data-act]'); if(!b) return;
+  var act=b.dataset.act;
+  if(act==='open'){ homeY=window.scrollY; navigated=true; return; }
+  if(act==='back'){ e.preventDefault(); if(navigated) history.back(); else location.hash=''; return; }
+  if(act==='year'){
+    var sec=b.closest('.year'), open=sec.getAttribute('data-open')!=='true';
+    document.querySelectorAll('.year').forEach(function(y){ y.setAttribute('data-open','false'); y.querySelector('.cases').hidden=true; y.querySelector('button').setAttribute('aria-expanded','false'); });
+    if(open){ sec.setAttribute('data-open','true'); sec.querySelector('.cases').hidden=false; b.setAttribute('aria-expanded','true'); S.open=b.dataset.year; }
+    else S.open='none';
+    return;
+  }
+  if(!cur) return;
+  var st=stateOf(cur), y=window.scrollY;
+  if(act==='choose'){
+    if(st.revealed) return;
+    st.choices[b.dataset.item]=b.dataset.val; save(); renderPre(); window.scrollTo(0,y); return;
+  }
+  if(act==='reveal'){
+    if(!cur.items.every(function(it){return st.choices[it.n]})) return;
+    st.revealed=true; save(); renderPre(); renderPost(true);
+    var r=$('#result'); if(r){ var top=r.getBoundingClientRect().top+window.scrollY-70; window.scrollTo({top:top,behavior:'smooth'}); }
+    return;
+  }
+  if(act==='mode'){
+    S.mode=b.dataset.mode; save(); renderThread();
+    var d=$('#debate'); if(d){ var t=d.getBoundingClientRect().top+window.scrollY-58; if(window.scrollY>t) window.scrollTo(0,t); }
+    return;
+  }
+  if(act==='full'){
+    var box=b.parentNode, ft=box.querySelector('.ft'); if(!ft) return;
+    var open2=ft.hidden; ft.hidden=!open2;
+    b.textContent=open2?'全文を閉じる':'全文を読む'; b.setAttribute('aria-expanded',String(open2));
+    return;
+  }
+});
+window.addEventListener('hashchange',route);
+
+route();
+
+if('serviceWorker' in navigator && /^https?:$/.test(location.protocol)){
+  window.addEventListener('load',function(){ navigator.serviceWorker.register('sw.js').catch(function(){}); });
+}
+})();
+</script>
+</body>
+</html>
