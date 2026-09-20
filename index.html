@@ -22,16 +22,17 @@
 <style>
 :root{
   color-scheme:light;
-  --ink:#16181c; --ink2:#454b54; --ink3:#69707a;
+  --ink:#14161a; --ink2:#3a4048; --ink3:#5a616b;
   --line:#c9d0da;
   --page:#d3dce8;      /* トップ:青みグレー */
   --mist:#e6ecf4;      /* トップ:一覧の内側 */
-  --room:#a3aebe;      /* 判断・審議ページ:少し暗い背景 */
-  --panel:#f8fafc;     /* チャットの中:明るく */
+  --room:#7b8799;      /* 判断・審議ページ:暗めの背景 */
+  --panel:#ffffff;     /* チャットの中:明るく */
   --blue:#2a93ea; --blue-deep:#1a73c1; --blue-ink:#14609f; --blue-tint:#e4f1fd;
-  --yes:#2a93ea; --yes-deep:#1a73c1;
-  --no:#d64545; --no-deep:#c23a3a;
-  --hold:#8a919b; --hold-deep:#69707a;
+  /* 態度表明の色(やわらかめ) */
+  --yes:#86c0ef; --yes-bg:#dcecfb; --yes-ink:#17558f;
+  --no:#ef9f9f;  --no-bg:#fbe1e1;  --no-ink:#9c2f2f;
+  --hold:#b4bac3; --hold-bg:#e6e9ed; --hold-ink:#3a4048;
   --hdr:48px;
   --safe-top:env(safe-area-inset-top,0px);
   --safe-bottom:env(safe-area-inset-bottom,0px);
@@ -132,7 +133,7 @@ footer.end{padding:14px 2px calc(40px + var(--safe-bottom));font-size:12px;color
 .go{display:block;width:100%;margin:18px 0 6px;padding:16px;border:0;border-radius:14px;background:var(--blue-deep);color:#fff;font-weight:800;font-size:16px;cursor:pointer;box-shadow:0 3px 0 var(--blue-ink);min-height:56px}
 .go:active:not(:disabled){transform:translateY(2px);box-shadow:0 1px 0 var(--blue-ink)}
 .go:disabled{background:#d9dee5;color:#6b727c;box-shadow:0 3px 0 #b4bbc5;cursor:not-allowed}
-.hint{margin:6px 0 0;text-align:center;font-size:13px;color:var(--ink)}
+.hint{margin:6px 0 0;text-align:center;font-size:13px;font-weight:700;color:#fff}
 .ghost{display:block;width:100%;margin:22px 0 0;padding:13px;border:2px solid var(--ink);border-radius:14px;background:#fff;font-weight:700;cursor:pointer;min-height:48px}
 
 /* 審議ページ:結果 */
@@ -159,27 +160,27 @@ footer.end{padding:14px 2px calc(40px + var(--safe-bottom));font-size:12px;color
 .legend{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 2px 0;font-size:12px;color:var(--ink2)}
 .legend:empty{display:none}
 
-.chip{display:inline-block;font-size:11.5px;font-weight:800;border-radius:999px;padding:0 9px;line-height:1.75;color:#fff}
-.chip.yes{background:var(--yes-deep)}
-.chip.no{background:var(--no-deep)}
-.chip.hold{background:var(--hold-deep)}
-.chip.part{background:linear-gradient(100deg,var(--yes-deep) 50%,var(--no-deep) 50%)}
+.chip{display:inline-block;font-size:11.5px;font-weight:800;border-radius:999px;padding:0 10px;line-height:1.8;color:var(--ink)}
+.chip.yes{background:var(--yes-bg);color:var(--yes-ink)}
+.chip.no{background:var(--no-bg);color:var(--no-ink)}
+.chip.hold{background:var(--hold-bg);color:var(--hold-ink)}
+.chip.part{background:linear-gradient(100deg,var(--yes-bg) 50%,var(--no-bg) 50%);color:var(--ink)}
 
 .msg{display:flex;gap:8px;margin:14px 0;align-items:flex-start}
 .msg.r{flex-direction:row-reverse}
-.ava{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800;background:#fff;border:1.5px solid #aab2bd;color:var(--ink2)}
-.ava.city{background:#dfe4ea;border-color:#dfe4ea}
+.ava{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800;background:#fff;border:1.5px solid #9aa4b1;color:var(--ink)}
+.ava.city{background:#dbe1e9;border-color:#dbe1e9}
 .msg .col{min-width:0;max-width:calc(100% - 44px);display:flex;flex-direction:column;align-items:flex-start}
 .msg.r .col{align-items:flex-end}
 .name{font-size:11.5px;color:var(--ink3);margin:0 4px 3px;line-height:1.5}
 .name .party{margin-left:6px}
 .msg.r .name{text-align:right}
-.bub{position:relative;background:#fff;border:1.5px solid #c3cad4;border-radius:4px 16px 16px 16px;padding:9px 13px;overflow-wrap:anywhere;word-break:break-word}
-.msg.r .bub{background:#e4e8ee;border-color:#e4e8ee;border-radius:16px 4px 16px 16px}
+.bub{position:relative;background:#f2f5f9;border:1.5px solid #ccd3dd;border-radius:4px 16px 16px 16px;padding:9px 13px;overflow-wrap:anywhere;word-break:break-word}
+.msg.r .bub{background:#e1e6ed;border-color:#e1e6ed;border-radius:16px 4px 16px 16px}
 .bub .chip{margin-bottom:4px}
-.bub.st-yes{border:2.5px solid var(--yes)}
-.bub.st-no{border:2.5px solid var(--no)}
-.bub.st-hold{border:2.5px solid var(--hold)}
+.bub.st-yes{border:2.5px solid var(--yes);background:#fff}
+.bub.st-no{border:2.5px solid var(--no);background:#fff}
+.bub.st-hold{border:2.5px solid var(--hold);background:#fff}
 .bub.st-part{border:2.5px solid transparent;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(100deg,var(--yes) 50%,var(--no) 50%) border-box}
 .t{white-space:pre-wrap}
 .t.full{font-size:14px;line-height:1.9}
@@ -188,15 +189,15 @@ footer.end{padding:14px 2px calc(40px + var(--safe-bottom));font-size:12px;color
 .xp{cursor:pointer;padding-right:26px}
 .xp .car{position:absolute;right:9px;bottom:6px;font-size:12px;color:var(--ink3);transition:transform .15s}
 .xp[aria-expanded="true"] .car{transform:rotate(180deg)}
-.ft{margin-top:8px;padding-top:8px;border-top:1px dashed #aab2bd;white-space:pre-wrap;color:var(--ink2);font-size:13.5px;line-height:1.85}
+.ft{margin-top:8px;padding-top:8px;border-top:1px dashed #aab2bd;white-space:pre-wrap;color:var(--ink);font-size:13.5px;line-height:1.85}
 .ft[hidden]{display:none}
 
 .sep{text-align:center;margin:22px 0 6px}
 .sep span{display:inline-block;background:var(--ink2);color:#fff;font-size:12px;border-radius:999px;padding:2px 12px}
 .sec{display:flex;align-items:center;gap:10px;margin:18px 0 2px;font-size:12.5px;font-weight:800;color:var(--ink2)}
-.sec::before,.sec::after{content:"";flex:1;height:1px;background:#c3cad4}
-.chair{position:relative;margin:10px auto;max-width:96%;border:1.5px dashed #a6afbb;border-radius:12px;padding:7px 12px;font-size:13.5px;color:var(--ink2)}
-.chair .name{margin:0 0 1px;font-weight:700}
+.sec::before,.sec::after{content:"";flex:1;height:1px;background:#c9d0da}
+.chair{position:relative;margin:10px auto;max-width:96%;border:1.5px dashed #9aa4b1;border-radius:12px;padding:7px 12px;font-size:13.5px;color:var(--ink);background:#f7f9fb}
+.chair .name{margin:0 0 1px;font-weight:700;color:var(--ink2)}
 .chair.xp{padding-right:26px}
 
 @media (prefers-reduced-motion:reduce){
