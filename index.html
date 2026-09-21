@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>陳情ジャッジ 加古川市議会</title>
 <meta name="description" content="陳情・請願の要旨を読んで、採択か不採択かを選んでみよう。選んだあとは、加古川市議会での審議を読めます。">
-<meta name="theme-color" content="#c6d7ee">
+<meta name="theme-color" content="#d0ddf1">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -24,9 +24,9 @@
   color-scheme:light;
   --ink:#14161a; --ink2:#3a4048; --ink3:#5a616b;
   --line:#c9d0da;
-  --page:#c6d7ee;      /* トップ:青みグレー(青強め) */
-  --mist:#dce8f8;      /* トップ:一覧の内側 */
-  --room:#6e86a8;      /* 判断・審議ページ:暗めの背景(青強め) */
+  --page:#d0ddf1;      /* トップ:青みグレー(青強め) */
+  --mist:#e4edfa;      /* トップ:一覧の内側 */
+  --room:#7c92b3;      /* 判断・審議ページ:暗めの背景(青強め) */
   --panel:#ffffff;     /* チャットの中:明るく */
   --blue:#2a93ea; --blue-deep:#1e79cc; --blue-ink:#175f9f; --blue-tint:#e4f1fd;
   /* 吹き出しの色:議員=ペールグリーン、市=ペールイエロー */
@@ -68,12 +68,14 @@ body:not(.room) .totop{background:#13203f}
 /* ============ トップ ============ */
 .hero{background:var(--page)}
 .hero img{display:block;width:100%;max-width:640px;margin:0 auto;height:auto;aspect-ratio:1672/941}
-.say{display:flex;gap:12px;align-items:flex-start;padding:18px 0 4px}
-.say .av{flex:none;width:58px;height:58px;border-radius:50%;background:#fff;border:2px solid #fff;box-shadow:0 1px 4px rgba(20,40,70,.25)}
+.say{padding:18px 0 4px}
+.say-head{display:flex;align-items:center;gap:10px;position:relative;z-index:1}
+.say .av{flex:none;width:56px;height:56px;border-radius:50%;background:#fff;border:2px solid #fff;box-shadow:0 1px 4px rgba(20,40,70,.25)}
 .say .av img{display:block;width:100%;height:100%;border-radius:50%}
-.say .bubble{flex:1;min-width:0;border:2px solid var(--blue);border-radius:4px 18px 18px 18px;padding:12px 14px;background:#fff;box-shadow:0 2px 8px rgba(20,40,70,.12)}
-.say .who{font-size:12px;font-weight:700;color:var(--blue-ink);margin-bottom:2px}
-.say p{margin:0 0 8px}
+.say .who{font-size:14px;font-weight:800;color:var(--blue-ink)}
+.say .bubble{position:relative;margin-top:10px;border:2px solid var(--blue);border-radius:16px;padding:14px 16px;background:#fff;box-shadow:0 2px 8px rgba(20,40,70,.12)}
+.say .bubble::before{content:"";position:absolute;top:-9px;left:24px;width:14px;height:14px;background:#fff;border-top:2px solid var(--blue);border-left:2px solid var(--blue);transform:rotate(45deg)}
+.say p{margin:0 0 10px}
 .say p:last-child{margin:0}
 .small{font-size:13px;color:var(--ink2)}
 
@@ -223,12 +225,14 @@ footer.end{padding:14px 2px calc(40px + var(--safe-bottom));font-size:12px;color
   <h1 class="sr">陳情ジャッジ 加古川市議会</h1>
   <main class="wrap">
     <div class="say">
-      <div class="av"><img src="kakomo.png" alt="カコモ" width="58" height="58"></div>
-      <div class="bubble">
+      <div class="say-head">
+        <div class="av"><img src="kakomo.png" alt="" width="56" height="56"></div>
         <div class="who">カコモ</div>
-        <p>加古川市議会に出された陳情・請願の「要旨」を読んで、あなたなら採択か、不採択か、選んでみましょう。</p>
-        <p>選んだあとは、市議会でどんな審議があったかを読めます。</p>
-        <p class="small">当てるためのクイズではありません。議会の結論がひとつの正解とは限らないからです。</p>
+      </div>
+      <div class="bubble">
+        <p>加古川市議会に出された陳情・請願、あなたならどのように判断されるでしょう？</p>
+        <p>選んだあとは、実際にどんな審議があったかを読めます。</p>
+        <p class="small">※当てるためのクイズではありません。議会の結論が正解とは限らないからです。</p>
       </div>
     </div>
 
