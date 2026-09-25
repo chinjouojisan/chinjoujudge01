@@ -78,7 +78,7 @@ h1,h2,h3{line-height:1.5;margin:0}
 .say p:last-child{margin:0}
 .small{font-size:13px;color:var(--ink2)}
 
-.fold{margin:16px 0 0;background:#fff;border:2px solid var(--ink);border-radius:14px;box-shadow:0 2px 8px rgba(20,40,70,.12)}
+.fold{margin:16px 0 0;background:#ffffff;border:2px solid var(--ink);border-radius:14px;box-shadow:0 2px 8px rgba(20,40,70,.12)}
 .fold summary{list-style:none;cursor:pointer;padding:12px 16px;font-weight:800;display:flex;justify-content:space-between;align-items:center;min-height:52px}
 .fold summary::-webkit-details-marker{display:none}
 .fold summary::after{content:"";width:9px;height:9px;border-right:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);transform:rotate(45deg) translateY(-2px);transition:transform .18s}
@@ -102,17 +102,30 @@ h1,h2,h3{line-height:1.5;margin:0}
 .case.srow .snip b{color:var(--ink2);font-weight:700}
 mark{background:#ffe28a;color:inherit;border-radius:2px;padding:0 1px}
 
-.pick{margin:26px 2px 4px;font-size:17px;font-weight:800}
-.year{border:2px solid var(--ink);border-radius:14px;margin:10px 0;background:#fff;overflow:hidden;box-shadow:0 2px 8px rgba(20,40,70,.12)}
+.pick{margin:22px 2px 4px;font-size:17px;font-weight:800}
+
+/* ---- ホームタブ(えらぶ/しらべる/データ) ---- */
+.hometabs{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:20px 0 0}
+.hometabs .tabbtn{border:2px solid var(--ink);border-radius:14px;background:#ffffff;color:var(--ink);padding:11px 4px;font-weight:800;font-size:14.5px;cursor:pointer;min-height:50px;box-shadow:0 3px 0 var(--ink);transition:transform .08s,box-shadow .08s}
+.hometabs .tabbtn:active{transform:translateY(3px);box-shadow:0 0 0 var(--ink)}
+.hometabs .tabbtn[aria-selected="true"]{background:#31386f;border-color:#1c2148;color:#fff;box-shadow:0 3px 0 #171a3d,inset 0 1px 0 rgba(255,255,255,.2)}
+.tabpanel{background:var(--mist);border-radius:18px;margin:14px 0 0;padding:2px 10px 14px;box-shadow:inset 0 2px 7px rgba(20,40,70,.10)}
+.tabpanel[hidden]{display:none}
+.tabpanel>.fold:first-child,.tabpanel>.pick:first-child{margin-top:14px}
+
+.year{border:2px solid var(--ink);border-radius:14px;margin:10px 0;background:#ffffff;overflow:hidden;box-shadow:0 3px 10px rgba(20,40,70,.18)}
 .year>button{display:flex;width:100%;align-items:center;justify-content:space-between;gap:8px;padding:14px 16px;background:none;border:0;text-align:left;font-weight:800;font-size:17px;cursor:pointer;min-height:56px}
 .year .sub{font-size:12.5px;color:var(--ink3);font-weight:500}
 .year[data-open="true"]>button{background:var(--ink);color:#fff}
 .year[data-open="true"] .sub{color:#c9cdd3}
 .cases{padding:8px;background:var(--mist)}
 .cases[hidden]{display:none}
-.case{display:flex;gap:10px;align-items:center;padding:12px;background:#fff;border:1px solid var(--line);border-radius:12px;margin:6px 0;text-decoration:none;color:inherit}
-a.case{border:1.5px solid #7f95b9}
-a.case:hover,a.case:active{border-color:var(--blue);box-shadow:0 0 0 2px var(--blue-tint)}
+.case{display:flex;gap:10px;align-items:center;padding:12px;background:#ffffff;border:1px solid var(--line);border-left:4px solid var(--ink3);border-radius:12px;margin:6px 0;text-decoration:none;color:inherit;box-shadow:0 1px 5px rgba(20,40,70,.12);transition:transform .1s,box-shadow .1s}
+.case.req{border-left-color:var(--blue-ink)}
+a.case{border:1.5px solid #7f95b9;border-left:4px solid var(--ink3)}
+a.case.req{border-left-color:var(--blue-ink)}
+a.case:hover,a.case:active{border-color:var(--blue);border-left-color:var(--blue-ink);box-shadow:0 0 0 2px var(--blue-tint),0 3px 8px rgba(20,40,70,.16);transform:translateY(-1px)}
+a.case:active{transform:translateY(0)}
 .case .ttl{flex:1;min-width:0;font-size:14.5px;line-height:1.55;font-weight:600}
 .case .st{flex:none;font-size:12px;color:var(--ink3);text-align:right}
 a.case .st::after{content:" ›";font-weight:800}
@@ -120,7 +133,7 @@ a.case .st::after{content:" ›";font-weight:800}
 .case.off{color:var(--ink3);background:#f3f5f8}
 .case.off .ttl{font-weight:500}
 
-.about{margin:22px 0 0;background:#fff;border:1.5px solid #7f95b9;border-radius:14px}
+.about{margin:22px 0 0;background:#ffffff;border:1.5px solid #7f95b9;border-radius:14px;box-shadow:0 2px 8px rgba(20,40,70,.10)}
 .about summary{cursor:pointer;padding:12px 16px;font-size:14px;font-weight:700;color:var(--ink2);min-height:48px}
 .about .body{font-size:13px;color:var(--ink2);padding:0 16px 14px}
 .about .body p{margin:0 0 8px}
@@ -165,6 +178,8 @@ footer.end{padding:14px 2px calc(40px + var(--safe-bottom));font-size:12px;color
 .rrow .rs{margin-left:auto;font-size:12.5px;font-weight:700;color:var(--ink2)}
 .rrow .nt{margin:2px 0 0;font-size:12.5px;color:var(--ink3)}
 .result .fine{margin:8px 0 0;font-size:12px;color:var(--ink3)}
+.result .ghost.share{margin:14px 0 0;padding:11px;font-size:14px}
+.result .shareMsg{margin:8px 0 0;font-size:12.5px;color:var(--blue-ink);text-align:center}
 .result .rt.sub{margin-top:8px}
 .extra{margin-top:12px;background:#eef3fb;border-left:4px solid var(--ink);border-radius:8px;padding:8px 12px;font-size:13.5px;line-height:1.75}
 .extra .et{font-weight:800;font-size:12.5px;color:var(--ink3)}
@@ -303,6 +318,12 @@ footer.end{padding:14px 2px calc(40px + var(--safe-bottom));font-size:12px;color
       </div>
     </div>
 
+    <div class="searchwrap">
+      <input type="search" id="searchInput" class="searchbox" placeholder="キーワードで検索(タイトル・内容・議員名など)" aria-label="陳情・請願・発言を検索" autocomplete="off">
+      <span class="sicon" aria-hidden="true">🔍</span>
+    </div>
+    <div id="searchResults" hidden></div>
+
     <details class="fold">
       <summary>陳情・請願ってなに?</summary>
       <div class="body">
@@ -331,46 +352,50 @@ footer.end{padding:14px 2px calc(40px + var(--safe-bottom));font-size:12px;color
       </div>
     </details>
 
-    <div class="searchwrap">
-      <input type="search" id="searchInput" class="searchbox" placeholder="キーワードで検索(タイトル・内容・議員名など)" aria-label="陳情・請願・発言を検索" autocomplete="off">
-      <span class="sicon" aria-hidden="true">🔍</span>
+    <div class="hometabs" role="tablist" aria-label="表示の切り替え">
+      <button type="button" class="tabbtn" data-act="hometab" data-tab="pick" role="tab" aria-selected="true" id="tabbtn-pick">審査を読む</button>
+      <button type="button" class="tabbtn" data-act="hometab" data-tab="data" role="tab" aria-selected="false" id="tabbtn-data">傾向分析</button>
     </div>
-    <div id="searchResults" hidden></div>
 
-    <h2 class="pick" id="pickHeading">年度をえらぶ</h2>
-    <div id="years"></div>
+    <div class="tabpanel" id="tabpanel-pick" role="tabpanel" aria-labelledby="tabbtn-pick">
+      <h2 class="pick" id="pickHeading">年度をえらぶ</h2>
+      <div id="years"></div>
+    </div>
 
-    <details class="fold stats">
-      <summary>データで見る4年間(令和4〜7年)</summary>
-      <div class="body">
-        <div id="stats"></div>
-        <button type="button" class="closefold" data-act="closefold">閉じる ▲</button>
-      </div>
-    </details>
+    <div class="tabpanel" id="tabpanel-data" role="tabpanel" aria-labelledby="tabbtn-data" hidden>
+      <h2 class="pick">データ・傾向分析</h2>
+      <details class="fold stats">
+        <summary>データで見る4年間(令和4〜7年)</summary>
+        <div class="body">
+          <div id="stats"></div>
+          <button type="button" class="closefold" data-act="closefold">閉じる ▲</button>
+        </div>
+      </details>
 
-    <details class="fold stats">
-      <summary>分野別の傾向(AIによる分類)</summary>
-      <div class="body">
-        <div id="fields"></div>
-        <button type="button" class="closefold" data-act="closefold">閉じる ▲</button>
-      </div>
-    </details>
+      <details class="fold stats">
+        <summary>分野別の傾向(AIによる分類)</summary>
+        <div class="body">
+          <div id="fields"></div>
+          <button type="button" class="closefold" data-act="closefold">閉じる ▲</button>
+        </div>
+      </details>
 
-    <details class="fold stats">
-      <summary>会派ごとの、趣旨への賛成・反対の傾向</summary>
-      <div class="body">
-        <div id="parties"></div>
-        <button type="button" class="closefold" data-act="closefold">閉じる ▲</button>
-      </div>
-    </details>
+      <details class="fold stats">
+        <summary>会派ごとの、趣旨への賛成・反対の傾向</summary>
+        <div class="body">
+          <div id="parties"></div>
+          <button type="button" class="closefold" data-act="closefold">閉じる ▲</button>
+        </div>
+      </details>
 
-    <details class="fold stats">
-      <summary>発言の文字数(議事録より)</summary>
-      <div class="body">
-        <div id="charlen"></div>
-        <button type="button" class="closefold" data-act="closefold">閉じる ▲</button>
-      </div>
-    </details>
+      <details class="fold stats">
+        <summary>発言の文字数(議事録より)</summary>
+        <div class="body">
+          <div id="charlen"></div>
+          <button type="button" class="closefold" data-act="closefold">閉じる ▲</button>
+        </div>
+      </details>
+    </div>
 
     <details class="about">
       <summary>このサイトについて</summary>
@@ -436,9 +461,10 @@ function statusOf(c){
 }
 function caseRow(c){
   var s=statusOf(c);
-  var inner='<span class="tag '+(c.kind==='請願'?'req':'')+'">'+esc(c.kind)+'</span><span class="ttl">'+esc(c.title)+'</span><span class="st">'+s.t+'</span>';
-  if(c.status==='ready') return '<a class="case '+s.cls+'" href="#/case/'+c.code+'">'+inner+'</a>';
-  return '<div class="case off">'+inner+'</div>';
+  var kindcls=(c.kind==='請願'?'req':'');
+  var inner='<span class="tag '+kindcls+'">'+esc(c.kind)+'</span><span class="ttl">'+esc(c.title)+'</span><span class="st">'+s.t+'</span>';
+  if(c.status==='ready') return '<a class="case '+kindcls+' '+s.cls+'" href="#/case/'+c.code+'">'+inner+'</a>';
+  return '<div class="case off '+kindcls+'">'+inner+'</div>';
 }
 /* ---------- 検索 ---------- */
 function hi(text,q){
@@ -470,29 +496,23 @@ function matchCase(c,q){
 }
 function searchRow(r,q){
   var c=r.c, s=statusOf(c);
-  var top='<div class="srow-top"><span class="tag '+(c.kind==='請願'?'req':'')+'">'+esc(c.kind)+'</span><span class="ttl">'+hi(c.title,q)+'</span><span class="st">'+s.t+'</span></div>';
+  var kindcls=(c.kind==='請願'?'req':'');
+  var top='<div class="srow-top"><span class="tag '+kindcls+'">'+esc(c.kind)+'</span><span class="ttl">'+hi(c.title,q)+'</span><span class="st">'+s.t+'</span></div>';
   var snip='';
   if(r.snippet){
     snip='<div class="snip"><b>'+esc(r.snippet.who)+'</b>「'+hi(snippetAround(r.snippet.text,q),q)+'」</div>';
   }
-  var cls='case srow '+s.cls+(c.status!=='ready'?' off':'');
+  var cls='case srow '+kindcls+' '+s.cls+(c.status!=='ready'?' off':'');
   if(c.status==='ready') return '<a class="'+cls+'" href="#/case/'+c.code+'">'+top+snip+'</a>';
   return '<div class="'+cls+'">'+top+snip+'</div>';
 }
 function doSearch(raw){
   var q=(raw||'').trim();
-  var rc=$('#searchResults'), yc=$('#years'), ph=$('#pickHeading');
-  if(!q){
-    if(rc){ rc.hidden=true; rc.innerHTML=''; }
-    if(yc) yc.hidden=false;
-    if(ph) ph.hidden=false;
-    return;
-  }
-  if(yc) yc.hidden=true;
-  if(ph) ph.hidden=true;
+  var rc=$('#searchResults');
+  if(!rc) return;
+  if(!q){ rc.hidden=true; rc.innerHTML=''; return; }
   var results=[];
   CASES.forEach(function(c){ var m=matchCase(c,q); if(m) results.push(m); });
-  if(!rc) return;
   rc.hidden=false;
   if(!results.length){
     rc.innerHTML='<p class="scount">「'+esc(q)+'」に一致する陳情・請願は見つかりませんでした。</p>';
@@ -500,10 +520,17 @@ function doSearch(raw){
   }
   rc.innerHTML='<p class="scount">'+results.length+'件見つかりました</p>'+results.map(function(r){return searchRow(r,q);}).join('');
 }
+function setHomeTab(tab){
+  ['pick','data'].forEach(function(t){
+    var p=$('#tabpanel-'+t), b=$('#tabbtn-'+t);
+    if(p) p.hidden=(t!==tab);
+    if(b) b.setAttribute('aria-selected', String(t===tab));
+  });
+}
 function renderHome(){
   var si=$('#searchInput'); if(si) si.value='';
   var rc=$('#searchResults'); if(rc){ rc.hidden=true; rc.innerHTML=''; }
-  var ph=$('#pickHeading'); if(ph) ph.hidden=false;
+  setHomeTab('pick');
   var sb=$('#stats'); if(sb) sb.innerHTML=statsHTML();
   var fb=$('#fields'); if(fb) fb.innerHTML=fieldsHTML();
   var pb=$('#parties'); if(pb) pb.innerHTML=partiesHTML();
@@ -693,8 +720,34 @@ function resultHTML(c){
        (both&&!sameNoteH&&it.noteH?'<p class="nt">'+esc(it.noteH)+'</p>':'')+'</div>';
   });
   if(c.extra&&c.extra.length) h+='<div class="extra"><div class="et">補足</div>'+c.extra.map(function(x){return '<p>'+esc(x)+'</p>'}).join('')+'</div>';
-  h+='<p class="fine">議会の結論が唯一の正解というわけではありません。</p></section>';
+  h+='<p class="fine">議会の結論が唯一の正解というわけではありません。</p>'+
+     '<button type="button" class="ghost share" data-act="share">結果をシェア</button><p class="shareMsg" id="shareMsg" hidden></p></section>';
   return h;
+}
+function shareText(c){
+  var st=stateOf(c), multi=c.items.length>1, ik=c.kind+'事項';
+  var lines=[];
+  c.items.forEach(function(it){
+    var mine=st.choices[it.n];
+    lines.push((multi?(ik+it.n+'：'):'')+'私「'+mine+'」／議会「'+it.result+(c.finalH&&it.resultH?'→本会議で'+it.resultH:'')+'」');
+  });
+  var url=location.origin+location.pathname+'#/case/'+c.code;
+  return '陳情ジャッジで「'+c.title+'」を判断してみました。\n'+lines.join('\n')+'\n\nあなたならどう判断しますか?\n'+url+'\n#陳情ジャッジ #加古川市議会';
+}
+function doShare(c){
+  var text=shareText(c);
+  var url=location.origin+location.pathname+'#/case/'+c.code;
+  var msg=$('#shareMsg');
+  function flash(t){ if(!msg) return; msg.textContent=t; msg.hidden=false; setTimeout(function(){msg.hidden=true;},2600); }
+  if(navigator.share){
+    navigator.share({text:text,url:url}).catch(function(){});
+    return;
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){flash('シェア用の文章をコピーしました。')}).catch(function(){window.prompt('コピーしてください',text)});
+    return;
+  }
+  window.prompt('コピーしてください',text);
 }
 function legendHTML(c){
   var seen={}; c.thread.forEach(function(m){ if(m.stance) seen[m.stance]=1; });
@@ -779,6 +832,7 @@ function toggleXp(el){
 document.addEventListener('click',function(e){
   var b=e.target.closest('[data-act]'); if(!b) return;
   var act=b.dataset.act;
+  if(act==='hometab'){ setHomeTab(b.dataset.tab); return; }
   if(act==='top'){ window.scrollTo({top:0,behavior:reduce?'auto':'smooth'}); return; }
   if(act==='nav'){ e.preventDefault(); location.hash=b.dataset.to; return; }
   if(act==='closefold'){
@@ -805,6 +859,7 @@ document.addEventListener('click',function(e){
     if(!allChosen(cur)) return;
     st.revealed=true; save(); location.hash='#/case/'+cur.code+'/debate'; return;
   }
+  if(act==='share'){ doShare(cur); return; }
   if(act==='mode'){
     S.mode=b.dataset.mode; save(); renderThread();
     var p=$('#panel'); if(p){ var t=p.getBoundingClientRect().top+window.scrollY-58; if(window.scrollY>t) window.scrollTo(0,t); }
