@@ -111,6 +111,10 @@ mark{background:#ffe28a;color:inherit;border-radius:2px;padding:0 1px}
 .pick{margin:22px 2px 4px;font-size:17px;font-weight:800}
 
 /* ---- ホームタブ(えらぶ/しらべる/データ) ---- */
+.officiallink{display:flex;align-items:center;gap:10px;margin:16px 0 0;padding:13px 14px;background:linear-gradient(135deg,#fff7e6 0%,#fdecc8 100%);border:2px solid #b8860b;border-radius:14px;text-decoration:none;color:var(--ink);box-shadow:0 2px 8px rgba(20,40,70,.12);min-height:48px}
+.officiallink .oltxt{flex:1;font-size:12.5px;line-height:1.5;color:var(--ink2)}
+.officiallink .oltxt b{display:block;font-size:14.5px;font-weight:800;color:var(--ink);margin-top:2px}
+.officiallink .olarrow{flex:none;font-size:20px;font-weight:800;color:#8a6300}
 .hometabs{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:20px 0 0}
 .hometabs .tabbtn{border:2px solid var(--ink);border-radius:14px;background:#ffffff;color:var(--ink);padding:11px 4px;font-weight:800;font-size:14.5px;cursor:pointer;min-height:50px;box-shadow:0 3px 0 var(--ink);transition:transform .08s,box-shadow .08s}
 .hometabs .tabbtn:active{transform:translateY(3px);box-shadow:0 0 0 var(--ink)}
@@ -357,6 +361,11 @@ footer.end{padding:14px 2px calc(40px + var(--safe-bottom));font-size:12px;color
         <button type="button" class="closefold" data-act="closefold">閉じる ▲</button>
       </div>
     </details>
+
+    <a class="officiallink" href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/gikaijimukyoku/kakogawashigikai/honkaigi_iinnkai/1416106391792.html" target="_blank" rel="noopener">
+      <span class="oltxt">あなたも陳情・請願を出せます<br><b>加古川市議会 公式ページで詳しく見る</b></span>
+      <span class="olarrow" aria-hidden="true">↗</span>
+    </a>
 
     <div class="hometabs" role="tablist" aria-label="表示の切り替え">
       <button type="button" class="tabbtn" data-act="hometab" data-tab="pick" role="tab" aria-selected="true" id="tabbtn-pick">審査を読む</button>
