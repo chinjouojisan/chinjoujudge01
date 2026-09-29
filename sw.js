@@ -1,4 +1,4 @@
-const CACHE_NAME='chinjoujudge01-v26';
+const CACHE_NAME='chinjoujudge01-v27';
 const SHELL=['./','./index.html','./manifest.json','./hero.jpg','./kakomo.png','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',e=>{
   e.waitUntil(
